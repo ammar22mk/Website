@@ -1,0 +1,625 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gabarito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+}
+
+
+
+body {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+nav {
+    max-width: fit-content; /* Fit content width, not stretching horizontally */
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Circular styling for nav items */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: black;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after, nav ul li a.active::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 0.5rem;
+    border: 1px solid #000;
+    border-radius: 100%;
+    background: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #242121; /* Match contact-btn hover background */
+    transform: translateY(-2px); /* Match contact-btn hover transform */
+}
+
+
+.contact-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background: none;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+.section {
+    min-height: 100vh;
+    padding: 5rem 5% 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #444;
+    max-width: 800px;
+}
+
+/* Home Section */
+.hero {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.profile-container {
+    max-width: 800px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.contact-btn, .resume-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-btn {
+    background-color: #000;
+    color: #fff;
+}
+
+.contact-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.resume-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.resume-btn:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+/* About Section */
+.about {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.about-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+}
+
+.about-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.about-details {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.detail-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.detail-card span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.tools {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tools i {
+    padding-top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
+}
+
+
+.social-icon {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Default icon color in light mode */
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+    color: #666;
+}
+
+/* Tooltip styling */
+.social-icon::after {
+    content: attr(data-tooltip); /* Use the data-tooltip attribute as content */
+    position: absolute;
+    bottom: 100%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+    color: #fff; /* White text */
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Prevents interaction when hidden */
+    transition: opacity 0.2s ease; /* Smooth fade-in */
+    z-index: 10;
+}
+
+.social-icon i {
+    color: inherit; /* Ensure the <i> inherits color from .social-icon */
+}
+
+.social-icon:hover::after {
+    opacity: 1; /* Show on hover */
+    visibility: visible;
+}
+
+
+/* Services Section */
+.services {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+}
+
+.service-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem; /* Add padding for button-like feel */
+    border: 1px solid #000; /* Add border like .show-more */
+    border-radius: 25px; /* Rounded like other buttons */
+    background-color: #000000; /* White background */
+    display: inline-block; /* Ensure padding/border apply correctly */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.read-more:hover {
+    color: #333; /* Slightly darker text on hover */
+    background-color: #f5f5f5; /* Light gray background on hover */
+    transform: translateY(-2px); /* Lift effect like other buttons */
+}
+
+.read-more:hover {
+    color: #333;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+}
+.skill-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* My Work Section */
+.work {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+}
+
+.work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.work-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.work-card:hover .work-overlay {
+    opacity: 1;
+}
+
+.work-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-overlay p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.work-overlay span {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.show-more {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.show-more:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+/* Contact Section */
+.contact {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    width: 100%;
+}
+
+.contact input, .contact textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+    color: #fff;
+}
+
+body.dark-mode header nav {
+    background: rgba(45, 45, 45, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode nav ul li a {
+    color: #fff;
+}
+
+body.dark-mode nav ul li a::after {
+    background-color: #fff;
+}
+
+body.dark-mode .section {
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+}
+
+/* Dark Mode Overrides for h1, h2, and p */
+body.dark-mode .section h1 {
+    color: #fff; /* Override #000 from .section h1 */
+}
+
+body.dark-mode .section h2 {
+    color: #ccc; /* Override #666 from .section h2; lighter gray for contrast */
+}
+
+body.dark-mode .section p {
+    color: #ddd; /* Override #444 from .section p; light gray for readability */
+}
+
+body.dark-mode .social-icon {
+    color: #fff; /* White icons in dark mode */
+}
+
+body.dark-mode .social-icon:hover {
+    color: #ddd; /* Light gray on hover in dark mode */
+}
+
+body.dark-mode .service-card p {
+    color: #ddd; /* Override #666 from .service-card p */
+}
+
+
+body.dark-mode .skill-card h3 {
+    color: #fff; /* White text for skill titles in dark mode */
+}
+
+body.dark-mode .skill-card p {
+    color: #ddd; /* Light gray for skill descriptions in dark mode */
+}
+
+body.dark-mode .contact-btn {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+body.dark-mode .contact-btn:hover {
+    background-color: #ddd;
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: #ddd;
+}
+
+body.dark-mode .resume-btn, body.dark-mode .show-more {
+    background-color: #2d2d2d;
+    color: #fff;
+    border-color: #fff;
+}
+
+body.dark-mode .resume-btn:hover, body.dark-mode .show-more:hover {
+    background-color: #3d3d3d;
+}
+
+body.dark-mode .service-card, body.dark-mode .detail-card, body.dark-mode .work-card, body.dark-mode .skill-card {
+    background: #3d3d3d;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .read-more {
+    color: #000000; /* White text in dark mode */
+    background-color: #fff;
+    border-color: #fff; /* White border */
+}
+
+body.dark-mode .read-more:hover {
+     background-color: #ddd;
+}
+
+body.dark-mode .contact input, body.dark-mode .contact textarea {
+    background: #2d2d2d;
+    border-color: #fff;
+    color: #fff;
+}
+
+body.dark-mode .submit-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-mode .submit-btn:hover {
+    background-color: #ddd;
+}
+
+/* Material Symbols Styling */
+.material-symbols-outlined {
+    font-size: 1.5rem; /* Default size for consistency */
+    vertical-align: middle; /* Align with text */
+}
+
+/* Specific tweaks for Material Symbols */
+.contact-btn .material-symbols-outlined {
+    font-size: 1.2rem; /* Smaller for the contact button */
+    margin-left: 0.2rem;
+}
+
+.detail-card .material-symbols-outlined {
+    font-size: 2rem; /* Matches original span size in detail-card */
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.work-overlay .material-symbols-outlined {
+    font-size: 2rem; /* Matches original span size in work-overlay */
+    cursor: pointer;
+}
+
+.theme-toggle .material-symbols-outlined {
+    font-size: 1.2rem; /* Match contact-btn icon size */
+}
