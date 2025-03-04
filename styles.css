@@ -66,6 +66,235 @@ nav ul li a:hover::after, nav ul li a.active::after {
     width: 100%;
 }
 
+/* About tabs layout */
+.about-tabs {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tab-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 120px;
+    border-radius: 8px;
+}
+
+.tab-btn span.material-symbols-outlined {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+.tab-btn.active {
+    color: #000;
+    background: rgba(0,0,0,0.05);
+}
+
+.tab-label {
+    font-weight: 600;
+}
+
+.tab-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+/* Skill bars */
+.skill-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-name {
+    font-weight: 600;
+}
+
+.skill-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: #000;
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* Timeline styles */
+.timeline, .experience-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline:before, .experience-timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #ddd;
+}
+
+.timeline-item, .experience-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.4rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #000;
+    top: 5px;
+}
+
+.timeline-content h4, .experience-content h4 {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-date, .experience-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Hobby grid */
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+}
+
+.hobby-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hobby-item i {
+    font-size: 2rem;
+}
+
+/* Experience styles */
+.experience-item {
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.experience-date {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.experience-content {
+    position: relative;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.company-logo {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.company-logo img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.role-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.experience-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.experience-skills span {
+    background: #f5f5f5;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
 .theme-toggle {
     position: fixed;
     top: 10px;
@@ -557,6 +786,37 @@ body.dark-mode .theme-toggle:hover {
     background-color: #ddd;
 }
 
+/* Dark mode adjustments */
+body.dark-mode .tab-btn {
+    color: #ccc;
+}
+
+body.dark-mode .tab-btn.active {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .tab-content {
+    background: #3d3d3d;
+}
+
+body.dark-mode .skill-bar {
+    background: #555;
+}
+
+body.dark-mode .skill-level {
+    background: #fff;
+}
+
+body.dark-mode .timeline:before, 
+body.dark-mode .experience-timeline:before {
+    background: #555;
+}
+
+body.dark-mode .timeline-dot {
+    background: #fff;
+}
+
 body.dark-mode .resume-btn, body.dark-mode .show-more {
     background-color: #2d2d2d;
     color: #fff;
@@ -597,6 +857,19 @@ body.dark-mode .submit-btn:hover {
     background-color: #ddd;
 }
 
+body.dark-mode .experience-content {
+    background: #3d3d3d;
+}
+
+body.dark-mode .company-logo {
+    background: #3d3d3d;
+}
+
+body.dark-mode .experience-skills span {
+    background: #2d2d2d;
+    color: #fff;
+}
+
 /* Material Symbols Styling */
 .material-symbols-outlined {
     font-size: 1.5rem; /* Default size for consistency */
@@ -622,4 +895,333 @@ body.dark-mode .submit-btn:hover {
 
 .theme-toggle .material-symbols-outlined {
     font-size: 1.2rem; /* Match contact-btn icon size */
+}
+
+.experience-timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    height: calc(100% - 20px);
+    width: 2px;
+    background: linear-gradient(to bottom, #ddd 50%, transparent 50%);
+    background-size: 2px 10px;
+}
+
+.experience-item:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #000;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover:before {
+    transform: scale(1.3);
+}
+
+/* Dark mode support */
+body.dark-mode .experience-item:before {
+    background: #fff;
+}
+
+.horizontal-timeline {
+    width: 100%;
+    overflow-x: auto;
+    padding: 3rem 0 1rem;
+}
+
+.timeline-wrapper {
+    display: flex;
+    min-width: 800px;
+    position: relative;
+}
+
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ddd;
+    z-index: 0;
+}
+
+.horizontal-timeline .timeline-item {
+    position: relative;
+    padding: 0 2rem;
+    flex: 1;
+}
+
+.horizontal-timeline .timeline-dot {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+    z-index: 1;
+}
+
+.horizontal-timeline .timeline-date {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+
+.horizontal-timeline .timeline-content {
+    margin-top: 60px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.company-logo-small {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.experience-card {
+    position: relative;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+}
+
+.experience-period {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.card-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin: 1rem auto;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+/* Timeline Styles */
+#timeline {
+    width: 100%;
+    height: 380px; /* Reduced from 500px */
+    overflow: hidden;
+    margin: 10px auto; /* Reduced top/bottom margin */
+    position: relative;
+    background: url('assests/dot.gif') 3px top repeat-y;
+    max-width: 800px;
+}
+
+/* If you don't have the dot.gif, use a CSS alternative */
+#timeline::before {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, #ddd 50%, transparent 50%);
+    background-size: 2px 10px;
+}
+
+#dates {
+    width: 100px;
+    height: 380px; /* Reduced to match timeline */
+    overflow: hidden;
+    float: left;
+}
+
+#dates li {
+    list-style: none;
+    width: 100px;
+    height: 70px; /* Reduced from 100px */
+    line-height: 70px; /* Reduced to match height */
+    font-size: 24px;
+    padding-left: 10px;
+    position: relative;
+}
+
+#dates li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #999;
+    border: 2px solid #fff;
+}
+
+#dates a {
+    line-height: 38px;
+    padding-bottom: 10px;
+    color: var(--text-color, #333);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#dates .selected {
+    font-size: 32px;
+    color: var(--accent-color, #000);
+    font-weight: bold;
+}
+
+body.dark-mode #dates .selected {
+    color: var(--accent-color-dark, #fff);
+}
+
+body.dark-mode #dates li::before {
+    border-color: #333;
+}
+
+#issues {
+    width: calc(100% - 100px);
+    height: 380px; /* Reduced to match timeline */
+    overflow: hidden;
+    float: left;
+}
+
+#issues li {
+    width: 100%;
+    min-height: 380px; /* Changed from a fixed height to min-height */
+    list-style: none;
+    text-align: center;
+    opacity: 0;
+    position: relative; /* Changed from absolute to relative */
+    display: none; /* Hide by default using display instead of opacity */
+    margin-bottom: 20px; /* Add some spacing between items */
+}
+
+#issues li.selected {
+    display: block; /* Show selected items */
+    opacity: 1;
+    z-index: 2;
+}
+
+#issues li img {
+    width: 100px; /* Smaller image */
+    height: 100px; /* Smaller image */
+    object-fit: contain;
+    margin: 5px auto; /* Reduced margin */
+    border-radius: 50%;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.8);
+}
+
+body.dark-mode #issues li img {
+    background: #333;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+#issues li.selected img {
+    transform: scale(1);
+}
+
+#issues li h1 {
+    color: var(--accent-color, #000);
+    font-size: 28px; /* Reduced from 32px */
+    margin: 5px 0; /* Reduced margin */
+}
+
+body.dark-mode #issues li h1 {
+    color: var(--accent-color-dark, #fff);
+}
+
+#issues li p {
+    font-size: 14px;
+    margin: 5px 20px; /* Reduced margin */
+    line-height: 1.4; /* Tighter line height */
+}
+
+#issues li .timeline-period {
+    font-weight: bold;
+    color: var(--accent-color, #000);
+    font-size: 16px;
+}
+
+body.dark-mode #issues li .timeline-period {
+    color: var(--accent-color-dark, #fff);
+}
+
+#grad_top,
+#grad_bottom {
+    width: 100%;
+    height: 40px; /* Reduced from 50px */
+    position: absolute;
+    pointer-events: none;
+}
+
+#grad_top {
+    top: 0;
+    background: linear-gradient(to bottom, var(--bg-color, #fff) 0%, rgba(255,255,255,0) 100%);
+}
+
+#grad_bottom {
+    bottom: 0;
+    background: linear-gradient(to top, var(--bg-color, #fff) 0%, rgba(255,255,255,0) 100%);
+}
+
+body.dark-mode #grad_top {
+    background: linear-gradient(to bottom, var(--bg-color-dark, #222) 0%, rgba(34,34,34,0) 100%);
+}
+
+body.dark-mode #grad_bottom {
+    background: linear-gradient(to top, var(--bg-color-dark, #222) 0%, rgba(34,34,34,0) 100%);
+}
+
+/* Apply these CSS variables */
+:root {
+    --bg-color: #fff;
+    --text-color: #333;
+    --accent-color: #000;
+    --bg-color-dark: #222;
+    --text-color-dark: #eee;
+    --accent-color-dark: #fff;
+}
+
+body.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --accent-color: var(--accent-color-dark);
 }
