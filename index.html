@@ -32,7 +32,7 @@
         <section id="home" class="section hero">
             <div class="profile-container">
                 <img src="assests/Profile Picture.png" alt="Your Profile" class="profile-img">
-                <h1 data-period="2000">I’m a Student.</h1>
+                <h1 class="typing-animation">I'm a Student</h1>
                 <p>Hi👋, My name is Ammar MK. I built this website to learn and as a hobby. Love to explore anything related in Technology and Science.</p>
                 <div class="buttons">
                     <button class="contact-btn" data-scroll="#contact">Contact me →</button>
@@ -46,36 +46,153 @@
             <h2>Introduction</h2>
             <h1>About me</h1>
             <p>My name is Ammar. Live in Taiping, Perak. I am a student at University Tun Hussein Onn Malaysia. Currently taking Bachelor Of Electronic Engineering With Honours⚡. Idk what else i should put in this About me section. </p>
-            <div class="about-grid">
-                <img src="assests/PXL_20210803_154530254.jpg" alt="Your Profile" class="about-img">
-                <div class="about-details">
-                    <div class="detail-card">
+            <div class="about-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="languages">
                         <span class="material-symbols-outlined">code</span>
-                        <h3>Languages</h3>
-                        <p>HTML, CSS, C++, lua, Dart</p>
-                    </div>
-                    <div class="detail-card">
+                        <span class="tab-label">Languages</span>
+                    </button>
+                    <button class="tab-btn" data-tab="education">
                         <span class="material-symbols-outlined">school</span>
-                        <h3>Education</h3>
-                        <p>Diploma in Electrical Eng Degree in Electronic Eng🕘</p>
-                    </div>
-                    <div class="detail-card">
+                        <span class="tab-label">Education</span>
+                    </button>
+                    <button class="tab-btn" data-tab="hobbies">
                         <span class="material-symbols-outlined">mood</span>
-                        <h3>hobby</h3>
-                        <p>Dota 2, Badminton, Scripting in RS3 and OSRS, Coding </p>
+                        <span class="tab-label">Hobbies</span>
+                    </button>
+                    <button class="tab-btn" data-tab="experience">
+                        <span class="material-symbols-outlined">work</span>
+                        <span class="tab-label">Experience</span>
+                    </button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="languages">
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <span class="skill-name">HTML/CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">C++</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Lua</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Dart</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="tab-pane" id="education">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Bachelor of Electronic Engineering with Honours</h4>
+                                    <p>University Tun Hussein Onn Malaysia</p>
+                                    <p class="timeline-date">In Progress 🕘</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Diploma in Electrical Engineering</h4>
+                                    <p>University Tun Hussein Onn Malaysia</p>
+                                    <p class="timeline-date">2020 - 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="hobbies">
+                        <div class="hobby-grid">
+                            <div class="hobby-item">
+                                <i class="fa-solid fa-gamepad"></i>
+                                <p>Dota 2</p>
+                            </div>
+                            <div class="hobby-item">
+                                <i class="fa-solid fa-shuttlecock"></i>
+                                <p>Badminton</p>
+                            </div>
+                            <div class="hobby-item">
+                                <i class="fa-solid fa-code"></i>
+                                <p>Scripting in RS3 and OSRS</p>
+                            </div>
+                            <div class="hobby-item">
+                                <i class="fa-solid fa-laptop-code"></i>
+                                <p>Coding</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="tab-pane" id="experience">
+                        <div id="timeline">
+                            <ul id="dates">
+                                <li><a href="#2024" class="selected">2024</a></li>
+                                <li><a href="#2023">2023</a></li>
+                                <li><a href="#2022">2022</a></li>
+                                <!-- Add more dates as needed -->
+                            </ul>
+                            <ul id="issues">
+
+                                <li id="2024" class="selected">
+                                    <img src="assests/logos/Remba.png" alt="REMBA Logo"/>
+                                    <h1>REMBA Aspirasi Sdn Bhd</h1>
+                                    <p class="timeline-period">Jul 2024 - Sep 2024</p>
+                                    <p>Student Internship</p>
+                                    <p><i class="fa-solid fa-location-dot"></i> Senawang, Negeri Sembilan, Malaysia</p>
+                                    <p>Worked on electronic testing and circuit design. Collaborated on projects related to electronic engineering applications.</p>
+                                </li>
+
+                                <li id="2023">
+                                    <img src="assests/logos/Vtech.png" alt="VTech Logo"/>
+                                    <h1>VTech Communications</h1>
+                                    <p class="timeline-period">Apr 2023 - Aug 2023</p>
+                                    <p>Student Internship</p>
+                                    <p><i class="fa-solid fa-location-dot"></i> Muar, Johor, Malaysia</p>
+                                    <p>Assisted in product development and testing for telecommunications devices.</p>
+                                </li>
+
+                                <li id="2022">
+                                    <img src="assests/logos/harold.png" alt="Harold's Bread Logo"/>
+                                    <h1>Harold's Bread</h1>
+                                    <p class="timeline-period">Jan 2022 - Mar 2022</p>
+                                    <p>Part-time Assistant</p>
+                                    <p><i class="fa-solid fa-location-dot"></i> Taiping, Perak, Malaysia</p>
+                                    <p>Helped with food preparation and customer service on weekends.</p>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
+            <div style="margin-top: 1rem;"></div>
             <h3>Reach me out!</h3>
             <div class="tools">
-                <a href="mailto:ammarmustafakamal2@gmail.com" class="social-icon" data-tooltip="Email"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.instagram.com/yourusername" class="social-icon" data-tooltip="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/ammar-mk" class="social-icon" data-tooltip="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://wa.me/yourphonenumber" class="social-icon" data-tooltip="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.youtube.com/@yourchannel" class="social-icon" data-tooltip="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://twitter.com/yourusername" class="social-icon" data-tooltip="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://github.com/yourusername" class="social-icon" data-tooltip="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://steamcommunity.com/id/yourusername" class="social-icon" data-tooltip="Steam"><i class="fa-brands fa-steam"></i></a>
+                <a href="mailto:ammarmustafakamal2@gmail.com" class="social-icon" data-tooltip="Email" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.instagram.com/fourth_mk" class="social-icon" data-tooltip="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ammar-mk" class="social-icon" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.link/jqqii8" class="social-icon" data-tooltip="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.youtube.com/@yourchannel" class="social-icon" data-tooltip="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://twitter.com/yourusername" class="social-icon" data-tooltip="X/Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://github.com/ammar22mk" class="social-icon" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                <a href="https://steamcommunity.com/id/ammarmk" class="social-icon" data-tooltip="Steam" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-steam"></i></a>
             </div>
         </section>
 
