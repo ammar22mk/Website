@@ -1,259 +1,659 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AmmarMK - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/443ea3f262.js" crossorigin="anonymous"></script>
-</head>
-<body>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Header & Navigation (matches initNavigation() in JS) -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#services">My Work</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li>
+            <a href="#home">
+              <iconify-icon icon="mdi:home" class="nav-icon"></iconify-icon>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#about">
+              <iconify-icon
+                icon="weui:me-filled"
+                class="nav-icon"
+              ></iconify-icon>
+              <span class="nav-text">About me</span>
+            </a>
+          </li>
+          <li>
+            <a href="#skills">
+              <iconify-icon icon="oi:badge" class="nav-icon"></iconify-icon>
+              <span class="nav-text">Skills</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services">
+              <iconify-icon
+                icon="dashicons:portfolio"
+                class="nav-icon"
+              ></iconify-icon>
+              <span class="nav-text">My Work</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" style="position: fixed; top: 20px; right: 10px;"><span class="material-symbols-outlined">dark_mode</span></button>
+    <!-- Theme Toggle (matches initThemeToggle() in JS) -->
+    <button class="theme-toggle">
+      <iconify-icon icon="line-md:sunny-filled-loop"></iconify-icon>
+    </button>
 
     <main>
-        <!-- Home Section -->
-        <section id="home" class="section hero">
-            <div class="profile-container">
-                <img src="assests/Profile Picture.png" alt="Your Profile" class="profile-img">
-                <h1 class="typing-animation">I'm a Student</h1>
-                <p>Hi👋, My name is Ammar MK. I built this website to learn and as a hobby. Love to explore anything related in Technology and Science.</p>
-                <div class="buttons">
-                    <button class="contact-btn" data-scroll="#contact">Contact me →</button>
-                    <a href="placeholder-resume.pdf" download class="resume-btn">My Resume ↓</a>
-                </div>
+      <!-- Home/Hero Section (matches initHeroSection() in JS) -->
+      <section id="home" class="section hero">
+        <div class="section-content">
+          <div class="profile-container">
+            <img
+              src="assests/Profile Picture.png"
+              alt="Your Profile"
+              class="profile-img"
+            />
+            <h1 class="typing-animation">I'm a Student</h1>
+            <p>
+              Hi👋, My name is Ammar MK. I built this website to learn and as a
+              hobby. Love to explore anything related in Technology and Science.
+            </p>
+            <div class="buttons">
+              <button class="contact-btn" data-scroll="#contact">
+                Contact me →
+              </button>
+              <a href="placeholder-resume.pdf" download class="resume-btn"
+                >My Resume ↓</a
+              >
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="section about">
-            <h2>Introduction</h2>
-            <h1>About me</h1>
-            <p>My name is Ammar. Live in Taiping, Perak. I am a student at University Tun Hussein Onn Malaysia. Currently taking Bachelor Of Electronic Engineering With Honours⚡. Idk what else i should put in this About me section. </p>
-            <div class="about-tabs">
-                <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="languages">
-                        <span class="material-symbols-outlined">code</span>
-                        <span class="tab-label">Languages</span>
-                    </button>
-                    <button class="tab-btn" data-tab="education">
-                        <span class="material-symbols-outlined">school</span>
-                        <span class="tab-label">Education</span>
-                    </button>
-                    <button class="tab-btn" data-tab="hobbies">
-                        <span class="material-symbols-outlined">mood</span>
-                        <span class="tab-label">Hobbies</span>
-                    </button>
-                    <button class="tab-btn" data-tab="experience">
-                        <span class="material-symbols-outlined">work</span>
-                        <span class="tab-label">Experience</span>
-                    </button>
-                </div>
-                
-                <div class="tab-content">
-                    <div class="tab-pane active" id="languages">
-                        <div class="skill-bars">
-                            <div class="skill-item">
-                                <span class="skill-name">HTML/CSS</span>
-                                <div class="skill-bar">
-                                    <div class="skill-level" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">C++</span>
-                                <div class="skill-bar">
-                                    <div class="skill-level" style="width: 70%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Lua</span>
-                                <div class="skill-bar">
-                                    <div class="skill-level" style="width: 75%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Dart</span>
-                                <div class="skill-bar">
-                                    <div class="skill-level" style="width: 65%"></div>
-                                </div>
-                            </div>
-                        </div>
+      <!-- About Me Section (matches initAboutSection() in JS) -->
+      <section id="about" class="section about">
+        <div class="section-content">
+          <h2>Introduction</h2>
+          <h1>About me</h1>
+          <p>
+            My name is Ammar. Live in Taiping, Perak. I am a student at
+            University Tun Hussein Onn Malaysia. Currently taking Bachelor Of
+            Electronic Engineering With Honours⚡. Idk what else i should put in
+            this About me section.
+          </p>
+
+          <!-- About Tabs -->
+          <div class="about-tabs">
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab="languages">
+                <iconify-icon icon="mdi:earth"></iconify-icon>
+                <span class="tab-label">Languages</span>
+              </button>
+              <button class="tab-btn" data-tab="education">
+                <iconify-icon icon="tdesign:education-filled"></iconify-icon>
+                <span class="tab-label">Education</span>
+              </button>
+              <button class="tab-btn" data-tab="hobbies">
+                <iconify-icon icon="token:fun"></iconify-icon>
+                <span class="tab-label">Hobbies</span>
+              </button>
+              <button class="tab-btn" data-tab="experience">
+                <iconify-icon icon="mdi:briefcase"></iconify-icon>
+                <span class="tab-label">Experience</span>
+              </button>
+            </div>
+
+            <div class="tab-content">
+              <!-- Languages Tab -->
+              <div class="tab-pane active" id="languages">
+                <div class="skill-bars">
+                  <div class="skill-item">
+                    <span class="skill-name">Bahasa Melayu</span>
+                    <div class="skill-bar">
+                      <div class="skill-level" style="width: 95%"></div>
                     </div>
-                    
-                    <div class="tab-pane" id="education">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <h4>Bachelor of Electronic Engineering with Honours</h4>
-                                    <p>University Tun Hussein Onn Malaysia</p>
-                                    <p class="timeline-date">In Progress 🕘</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <h4>Diploma in Electrical Engineering</h4>
-                                    <p>University Tun Hussein Onn Malaysia</p>
-                                    <p class="timeline-date">2020 - 2022</p>
-                                </div>
-                            </div>
-                        </div>
+                  </div>
+                  <div class="skill-item">
+                    <span class="skill-name">English</span>
+                    <div class="skill-bar">
+                      <div class="skill-level" style="width: 80%"></div>
                     </div>
-                    
-                    <div class="tab-pane" id="hobbies">
-                        <div class="hobby-grid">
-                            <div class="hobby-item">
-                                <i class="fa-solid fa-gamepad"></i>
-                                <p>Dota 2</p>
-                            </div>
-                            <div class="hobby-item">
-                                <i class="fa-solid fa-shuttlecock"></i>
-                                <p>Badminton</p>
-                            </div>
-                            <div class="hobby-item">
-                                <i class="fa-solid fa-code"></i>
-                                <p>Scripting in RS3 and OSRS</p>
-                            </div>
-                            <div class="hobby-item">
-                                <i class="fa-solid fa-laptop-code"></i>
-                                <p>Coding</p>
-                            </div>
-                        </div>
+                  </div>
+                  <div class="skill-item">
+                    <span class="skill-name">Mandarin</span>
+                    <div class="skill-bar">
+                      <div class="skill-level" style="width: 10%"></div>
                     </div>
-                    
-                    
-                    <div class="tab-pane" id="experience">
-                        <div id="timeline">
-                            <ul id="dates">
-                                <li><a href="#2024" class="selected">2024</a></li>
-                                <li><a href="#2023">2023</a></li>
-                                <li><a href="#2022">2022</a></li>
-                                <!-- Add more dates as needed -->
-                            </ul>
-                            <ul id="issues">
-
-                                <li id="2024" class="selected">
-                                    <img src="assests/logos/Remba.png" alt="REMBA Logo"/>
-                                    <h1>REMBA Aspirasi Sdn Bhd</h1>
-                                    <p class="timeline-period">Jul 2024 - Sep 2024</p>
-                                    <p>Student Internship</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> Senawang, Negeri Sembilan, Malaysia</p>
-                                    <p>Worked on electronic testing and circuit design. Collaborated on projects related to electronic engineering applications.</p>
-                                </li>
-
-                                <li id="2023">
-                                    <img src="assests/logos/Vtech.png" alt="VTech Logo"/>
-                                    <h1>VTech Communications</h1>
-                                    <p class="timeline-period">Apr 2023 - Aug 2023</p>
-                                    <p>Student Internship</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> Muar, Johor, Malaysia</p>
-                                    <p>Assisted in product development and testing for telecommunications devices.</p>
-                                </li>
-
-                                <li id="2022">
-                                    <img src="assests/logos/harold.png" alt="Harold's Bread Logo"/>
-                                    <h1>Harold's Bread</h1>
-                                    <p class="timeline-period">Jan 2022 - Mar 2022</p>
-                                    <p>Part-time Assistant</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> Taiping, Perak, Malaysia</p>
-                                    <p>Helped with food preparation and customer service on weekends.</p>
-                                </li>
-
-                            </ul>
-                        </div>
+                  </div>
+                  <div class="skill-item">
+                    <span class="skill-name">Dart</span>
+                    <div class="skill-bar">
+                      <div class="skill-level" style="width: 65%"></div>
                     </div>
-                    
+                  </div>
                 </div>
-            </div>
-            <div style="margin-top: 1rem;"></div>
-            <h3>Reach me out!</h3>
-            <div class="tools">
-                <a href="mailto:ammarmustafakamal2@gmail.com" class="social-icon" data-tooltip="Email" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.instagram.com/fourth_mk" class="social-icon" data-tooltip="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/ammar-mk" class="social-icon" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://wa.link/jqqii8" class="social-icon" data-tooltip="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.youtube.com/@yourchannel" class="social-icon" data-tooltip="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://twitter.com/yourusername" class="social-icon" data-tooltip="X/Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://github.com/ammar22mk" class="social-icon" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
-                <a href="https://steamcommunity.com/id/ammarmk" class="social-icon" data-tooltip="Steam" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-steam"></i></a>
-            </div>
-        </section>
+              </div>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section skills">
-            <h2>My Expertise</h2>
-            <h1>Skills</h1>
-            <p>Here are some of the skills I’ve picked up along the way.</p>
-            <div class="skills-grid">
-                <div class="skill-card"><h3>Coding</h3><p>HTML, CSS, C++, lua, Dart</p><p>HTML, CSS, C++, lua, Dart</p></div>
-                <div class="skill-card"><h3>Electronics</h3><p>Circuit Design</p></div>
-            </div>
-        </section>
+              <!-- Education Tab -->
+              <div class="tab-pane" id="education">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <h4>Bachelor of Electronic Engineering with Honours</h4>
+                      <p>University Tun Hussein Onn Malaysia</p>
+                      <p class="timeline-date">In Progress 🕘</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                      <h4>Diploma in Electrical Engineering</h4>
+                      <p>University Tun Hussein Onn Malaysia</p>
+                      <p class="timeline-date">2020 - 2022</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <!-- Works Section -->
-        <section id="services" class="section services">
-            <h2>What I do</h2>
-            <h1>My Works</h1>
-            <p>These are some stuff (that i think is cool) i've learn a long my way. Whether during my studies, for assignment, works or for fun😁.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="/assests/website.jpg" alt="Web Design">
-                    <h3>Web design</h3>
-                    <p>Web development is the process of building, programming...</p>
-                    <a href="#" class="read-more">Read more →</a>
+              <!-- Hobbies Tab -->
+              <div class="tab-pane" id="hobbies">
+                <div class="hobby-grid">
+                  <div class="hobby-item">
+                    <iconify-icon icon="simple-icons:dota2"></iconify-icon>
+                    <p>Dota 2</p>
+                  </div>
+                  <div class="hobby-item">
+                    <iconify-icon icon="mdi:badminton"></iconify-icon>
+                    <p>Badminton</p>
+                  </div>
+                  <div class="hobby-item">
+                    <iconify-icon icon="cib:lua"></iconify-icon>
+                    <p>Scripting</p>
+                  </div>
+                  <div class="hobby-item">
+                    <iconify-icon
+                      icon="arcticons:coding-keyboard"
+                    ></iconify-icon>
+                    <p>Coding</p>
+                  </div>
+                  <div class="hobby-item">
+                    <iconify-icon icon="arcticons:runescape"></iconify-icon>
+                    <p>RS3</p>
+                  </div>
+                  <div class="hobby-item">
+                    <iconify-icon
+                      icon="arcticons:old-school-runescape"
+                    ></iconify-icon>
+                    <p>OSRS</p>
+                  </div>
                 </div>
-                <div class="service-card">
-                    <img src="placeholder-service2.png" alt="Mobile App">
-                    <h3>Mobile app</h3>
-                    <p>Mobile app development involves creating software for mobile devices...</p>
-                    <a href="#" class="read-more">Read more →</a>
-                </div>
-                <div class="service-card">
-                    <img src="placeholder-service3.png" alt="Arduino">
-                    <h3>Arduino + LoRa</h3>
-                    <p>LoRa Enable Wireless Water Content Irregularity Monitoring System...</p>
-                    <a href="#" class="read-more">Read more →</a>
-                </div>
-                <div class="service-card">
-                    <img src="placeholder-service4.png" alt="Scripting">
-                    <h3>Game Scripting</h3>
-                    <p>Starting with a simple auto clicker with timing then color detection, now evolved into injecting into game's dll and writing script to interact with game's ID in lua. Mostly for Runescape 3</p>
-                    <a href="#" class="read-more">Read more →</a>
-                </div>
-            </div>
-        </section>
+              </div>
 
-        <!-- Contact Me Section -->
-        <section id="contact" class="section contact">
-            <h2>Connect with me</h2>
-            <h1>Get in touch</h1>
-            <p>I’d love to hear from you! If you have any questions, comments, or feedback, please use the form below.</p>
-            <form>
-                <input type="text" placeholder="Enter your name" required>
-                <input type="email" placeholder="Enter your email" required>
-                <textarea placeholder="if you really want to contact me, click the email icon on About me section under 'Reach me out!', i just dont want web scrawler bot to spam my email" required></textarea>
-                <button type="submit" class="submit-btn">Submit now →</button>
-            </form>
-        </section>
+              <!-- Experience Tab -->
+              <div class="tab-pane" id="experience">
+                <div id="timeline">
+                  <ul id="dates">
+                    <li><a href="#2024" class="selected">2024</a></li>
+                    <li><a href="#2023">2023</a></li>
+                    <li><a href="#2022">2022</a></li>
+                  </ul>
+                  <ul id="issues">
+                    <li id="2024" class="selected">
+                      <img src="assests/logos/Remba.png" alt="REMBA Logo" />
+                      <h1>REMBA Aspirasi Sdn Bhd</h1>
+                      <p class="timeline-period">Jul 2024 - Sep 2024</p>
+                      <p>Student Internship</p>
+                      <p>
+                        <iconify-icon icon="mdi:location"></iconify-icon>
+                        Senawang, Negeri Sembilan, Malaysia
+                      </p>
+                      <p>
+                        Worked on deployment of CCTV and Infortaiment system.
+                        Collaborated on projects universities and SSM around
+                        Malaysia.
+                      </p>
+                    </li>
+                    <li id="2023">
+                      <img src="assests/logos/Vtech.png" alt="VTech Logo" />
+                      <h1>VTech Communications</h1>
+                      <p class="timeline-period">Apr 2023 - Aug 2023</p>
+                      <p>Student Internship</p>
+                      <p>
+                        <iconify-icon icon="mdi:location"></iconify-icon> Muar,
+                        Johor, Malaysia
+                      </p>
+                      <p>
+                        Assisted in product development and testing for
+                        telecommunications devices as a technician.
+                      </p>
+                    </li>
+                    <li id="2022">
+                      <img
+                        src="assests/logos/harold.png"
+                        alt="Harold's Bread Logo"
+                      />
+                      <h1>Harold's Bread</h1>
+                      <p class="timeline-period">Jan 2022 - Mar 2022</p>
+                      <p>Part-time Assistant</p>
+                      <p>
+                        <iconify-icon icon="mdi:location"></iconify-icon>
+                        Taiping, Perak, Malaysia
+                      </p>
+                      <p>
+                        Mainly a cashier. Helped with food preparation, buisness
+                        operations, and sometimes bake the bread!
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div style="margin-top: 1rem"></div>
+          <h3>Reach me out!</h3>
+          <div class="tools">
+            <a
+              href="mailto:ammarmustafakamal2@gmail.com"
+              class="social-icon"
+              data-tooltip="Email"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:email"></iconify-icon>
+            </a>
+            <a
+              href="https://www.instagram.com/fourth_mk"
+              class="social-icon"
+              data-tooltip="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:instagram"></iconify-icon>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ammar-mk"
+              class="social-icon"
+              data-tooltip="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:linkedin"></iconify-icon>
+            </a>
+            <a
+              href="https://wa.link/jqqii8"
+              class="social-icon"
+              data-tooltip="WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:whatsapp"></iconify-icon>
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="social-icon"
+              data-tooltip="YouTube"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:youtube"></iconify-icon>
+            </a>
+            <a
+              href="https://twitter.com/yourusername"
+              class="social-icon"
+              data-tooltip="i dont have twitter.."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:twitter"></iconify-icon>
+            </a>
+            <a
+              href="https://github.com/ammar22mk"
+              class="social-icon"
+              data-tooltip="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:github"></iconify-icon>
+            </a>
+            <a
+              href="https://steamcommunity.com/id/ammarmk"
+              class="social-icon"
+              data-tooltip="Steam"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <iconify-icon icon="mdi:steam"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills & Certifications Section (matches initSkillsSection() in JS) -->
+      <section id="skills" class="section skills">
+        <div class="section-content">
+          <h2>My Expertise</h2>
+          <h1>Skills & Certifications</h1>
+          <p>
+            Here are some of the skills, tools, and certifications I've picked
+            up along the way.
+          </p>
+
+          <!-- Certificates Container -->
+          <div class="certificates-container">
+            <div class="certificates-row">
+              <div
+                class="certificate-item"
+                data-tooltip="Microsoft Certified: Azure Fundamentals"
+              >
+                <a
+                  href="https://www.credly.com/badges/b6ada39f-7a77-46ea-b469-0a703efd25ae/public_url"
+                  target="_blank"
+                >
+                  <img
+                    src="assests/svg/azure.svg"
+                    alt="Certificate"
+                    class="certificate-icon"
+                  />
+                </a>
+              </div>
+              <div
+                class="certificate-item"
+                data-tooltip="Microsoft Certified: Azure Data Fundamentals"
+              >
+                <a
+                  href="https://www.credly.com/badges/0f773deb-24bc-4813-9a00-4b22dbbe2a2b/public_url"
+                  target="_blank"
+                >
+                  <img
+                    src="assests/svg/azuredata.svg"
+                    alt="Certificate"
+                    class="certificate-icon"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Row 1 -->
+          <div class="skills-scroller-container" data-row="1">
+            <div class="skills-scroller">
+              <div
+                class="skill-icon"
+                data-skill="html-css"
+                data-tooltip="this website is build using html scss and js"
+              >
+                <iconify-icon icon="mdi:language-html5"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="cpp"
+                data-tooltip="I started learning C++ in 2020, and I'm still learning it."
+              >
+                <iconify-icon icon="simple-icons:cplusplus"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="lua"
+                data-tooltip="Scripting game mostly"
+              >
+                <iconify-icon icon="simple-icons:lua"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="dart"
+                data-tooltip="Well to build a flutter app, you need to know dart"
+              >
+                <iconify-icon icon="simple-icons:dart"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="electronics"
+                data-tooltip="Of course, I'm an Electronic Engineering student"
+              >
+                <iconify-icon icon="mdi:chip"></iconify-icon>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Row 2 -->
+          <div class="skills-scroller-container" data-row="2">
+            <div class="skills-scroller">
+              <div
+                class="skill-icon"
+                data-skill="git"
+                data-tooltip="Git - Version control for collaborative projects"
+              >
+                <iconify-icon icon="mdi:git"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="arduino"
+                data-tooltip="Been using this microcontroller since 2020 to build various projects"
+              >
+                <iconify-icon icon="simple-icons:arduino"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="photoshop"
+                data-tooltip="I mainly use it to create logos for the posters"
+              >
+                <iconify-icon icon="devicon-plain:photoshop"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="ilustrator"
+                data-tooltip="I use this a lot designing posters and presentaion for assignments"
+              >
+                <iconify-icon icon="devicon-plain:illustrator"></iconify-icon>
+              </div>
+              <div
+                class="skill-icon"
+                data-skill="flutter"
+                data-tooltip="Flutter - Everything is a widget!"
+              >
+                <iconify-icon icon="simple-icons:flutter"></iconify-icon>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tooltip Modal (corresponds to initTooltips() in JS) -->
+          <div class="skill-modal" id="skill-modal">
+            <p id="modal-content">Hover over an item to see details.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Works Section (matches initWorksSection() in JS) -->
+      <section id="services" class="section slider">
+        <div class="section-content">
+          <h2>What I do</h2>
+          <h1>My Works</h1>
+          <p>
+            These are some stuff (that I think is cool) I've learned along my
+            way. Whether during my studies, for assignments, work, or for fun
+          </p>
+
+          <!-- Radio Buttons for Slider -->
+          <input
+            type="radio"
+            name="slider"
+            id="slide-1"
+            class="slider__radio"
+          />
+          <input
+            type="radio"
+            name="slider"
+            id="slide-2"
+            class="slider__radio"
+            checked
+          />
+          <input
+            type="radio"
+            name="slider"
+            id="slide-3"
+            class="slider__radio"
+          />
+          <input
+            type="radio"
+            name="slider"
+            id="slide-4"
+            class="slider__radio"
+          />
+
+          <!-- Slider Holder -->
+          <div class="slider__holder">
+            <label for="slide-1" class="slider__item slider__item--1 card">
+              <div class="card-content">
+                <h3>Web Development</h3>
+                <p>
+                  I've build several website before, this one is the latest one
+                  and i think it's a an improvement over all of my pass web
+                  development. I just develop web for fun.
+                </p>
+                <a
+                  href="#"
+                  class="read-more"
+                  data-tooltip="i havent make the page for this yet..."
+                  >Read more →</a
+                >
+              </div>
+              <div class="card-image">
+                <img
+                  src="assests/works/website.png"
+                  alt="Web Design Project"
+                  data-tooltip="Out of idea"
+                />
+              </div>
+            </label>
+            <label for="slide-2" class="slider__item slider__item--2 card">
+              <div class="card-content">
+                <h3>Flutter Mobile App</h3>
+                <p>
+                  <span style="color: #757575">Motor</span
+                  ><span style="color: #1565c0">Medic</span>,<span
+                    style="color: #757575"
+                    >"A Doctor For Your Ride"</span
+                  >
+                  was developed as a comprehensive tool designed to educate and
+                  empower users in motorcycle maintenance. This is my group
+                  project for our Software Engineering subject.
+                </p>
+                <a
+                  href="#"
+                  class="read-more"
+                  data-tooltip="i havent make the page for this yet..."
+                  >Read more →</a
+                >
+              </div>
+              <div class="card-image">
+                <img src="assests/works/logo.png" alt="Mobile App Project" />
+              </div>
+            </label>
+            <label for="slide-3" class="slider__item slider__item--3 card">
+              <div class="card-content">
+                <h3>Arduino + LoRa</h3>
+                <p>
+                  LoRa Enabled Wireless Water Content Irregularity Monitoring
+                  System. This is Grant Project from my lecturer and my Final
+                  Year Project for my Diploma.
+                </p>
+                <a
+                  href="#"
+                  class="read-more"
+                  data-tooltip="i havent make the page for this yet..."
+                  >Read more →</a
+                >
+              </div>
+              <div class="card-image">
+                <img
+                  src="assests/works/lora.png"
+                  alt="Arduino + LoRa Project"
+                />
+              </div>
+            </label>
+            <label for="slide-4" class="slider__item slider__item--4 card">
+              <div class="card-content">
+                <h3>Game Scripting</h3>
+                <p>
+                  Starting with a simple clicker with timing then color
+                  detection, now evolved into injecting into game's dll and
+                  writing script to interact with the game. Mostly in RuneScape
+                  3.
+                </p>
+                <a
+                  href="#"
+                  class="read-more"
+                  data-tooltip="i havent make the page for this yet..."
+                  >Read more →</a
+                >
+              </div>
+              <div class="card-image">
+                <img
+                  src="assests/works/logo.png"
+                  alt="Game Scripting Project"
+                  data-tooltip="i dont have the appropiate picture yet.."
+                />
+              </div>
+            </label>
+          </div>
+
+          <!-- Navigation Bullets -->
+          <div class="bullets">
+            <label for="slide-1" class="bullets__item bullets__item--1"></label>
+            <label for="slide-2" class="bullets__item bullets__item--2"></label>
+            <label for="slide-3" class="bullets__item bullets__item--3"></label>
+            <label for="slide-4" class="bullets__item bullets__item--4"></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Me Section -->
+      <section id="contact" class="section contact">
+        <div class="section-content">
+          <h2>Connect with me</h2>
+          <h1>Get in touch</h1>
+          <p>
+            I'd love to hear from you! If you have any questions, comments, or
+            feedback, please use the form below.
+          </p>
+          <form>
+            <input type="text" placeholder="Enter your name" required />
+            <input type="email" placeholder="Enter your email" required />
+            <textarea
+              placeholder="if you really want to contact me, click the email icon on About me section under 'Reach me out!', i just dont want web scrawler bot to spam my email"
+              required
+            ></textarea>
+            <button type="submit" class="submit-btn">Submit now →</button>
+          </form>
+        </div>
+      </section>
     </main>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
