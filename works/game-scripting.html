@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Scripting - AmmarMK Portfolio</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assests/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assests/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assests/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../assests/favicon_io/site.webmanifest" />
+
+    <style>
+      .work-page {
+        min-height: 100vh;
+        padding: 5rem 5% 2rem;
+        background: linear-gradient(to bottom, var(--bg-gradient-from), var(--bg-gradient-to));
+      }
+
+      .work-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .back-link:hover {
+        transform: translateX(-5px);
+      }
+
+      .work-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .work-hero h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .work-hero p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .work-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        margin-bottom: 2rem;
+      }
+
+      .work-section h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .work-section h3 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .work-section p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .work-section ul {
+        list-style-position: inside;
+        color: var(--text-light);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .gallery-placeholder {
+        background: var(--secondary-color);
+        padding: 3rem;
+        border-radius: 10px;
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .work-hero h1 {
+          font-size: 2rem;
+        }
+
+        .work-hero p {
+          font-size: 1rem;
+        }
+
+        .work-section {
+          padding: 1.5rem;
+        }
+
+        .work-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle">
+      <iconify-icon icon="line-md:sunny-filled-loop"></iconify-icon>
+    </button>
+
+    <div class="work-page">
+      <div class="work-container">
+        <a href="../index.html#services" class="back-link">
+          <iconify-icon icon="mdi:arrow-left"></iconify-icon>
+          Back to Portfolio
+        </a>
+
+        <div class="work-hero">
+          <h1>Game Scripting</h1>
+          <p>
+            From simple automation to advanced game interaction through scripting
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Overview</h2>
+          <p>
+            My journey in game scripting started with simple automation tools and
+            evolved into creating sophisticated scripts that interact with game
+            mechanics at a deep level. What began as a simple clicker with timing
+            mechanisms has grown into advanced techniques including color detection,
+            DLL injection, and writing scripts that directly interact with game
+            memory and functions.
+          </p>
+          <p>
+            Most of my scripting work has been focused on RuneScape 3, where I've
+            developed various automation tools and helper scripts that demonstrate
+            different levels of game interaction complexity.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Technologies Used</h2>
+          <div class="tech-list">
+            <span class="tech-tag">Lua Scripting</span>
+            <span class="tech-tag">DLL Injection</span>
+            <span class="tech-tag">Color Detection</span>
+            <span class="tech-tag">Memory Management</span>
+            <span class="tech-tag">Game Automation</span>
+            <span class="tech-tag">Low-level Programming</span>
+          </div>
+        </div>
+
+        <div class="work-section">
+          <h2>Evolution of Skills</h2>
+          
+          <h3>Phase 1: Simple Clickers</h3>
+          <p>
+            Started with basic auto-clicker tools that could perform timed clicks
+            at specific intervals. This introduced me to the fundamentals of
+            automation and event handling.
+          </p>
+
+          <h3>Phase 2: Color Detection</h3>
+          <p>
+            Advanced to using color detection algorithms to identify specific
+            game elements on screen. This allowed for more intelligent automation
+            that could respond to visual changes in the game.
+          </p>
+
+          <h3>Phase 3: DLL Injection & Advanced Scripting</h3>
+          <p>
+            Evolved to more sophisticated techniques including DLL injection and
+            writing scripts that directly interact with the game's memory and
+            functions. This phase required deep understanding of game architecture,
+            memory management, and low-level programming concepts.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Primary Focus: RuneScape 3</h2>
+          <p>
+            Most of my scripting projects have been developed for RuneScape 3,
+            a popular MMORPG. This game provides a complex environment for
+            scripting challenges, from simple repetitive tasks to complex
+            decision-making systems.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Technical Skills Developed</h2>
+          <ul>
+            <li>Lua scripting language proficiency</li>
+            <li>DLL injection techniques and implementation</li>
+            <li>Image processing and color detection algorithms</li>
+            <li>Memory reading and manipulation</li>
+            <li>Reverse engineering fundamentals</li>
+            <li>Low-level system programming</li>
+            <li>Game architecture understanding</li>
+            <li>Debugging and problem-solving in complex systems</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>What I Learned</h2>
+          <ul>
+            <li>Progressive skill building from basic to advanced techniques</li>
+            <li>Understanding of game architecture and memory management</li>
+            <li>Computer vision basics through color detection</li>
+            <li>Low-level programming and system interactions</li>
+            <li>Problem-solving in restricted and complex environments</li>
+            <li>Importance of efficient code in performance-critical applications</li>
+            <li>Ethics and responsible use of automation tools</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>Gallery</h2>
+          <div class="gallery-placeholder">
+            <iconify-icon icon="mdi:image-multiple" width="48"></iconify-icon>
+            <p>Script examples and demonstrations coming soon...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

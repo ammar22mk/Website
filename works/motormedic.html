@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotorMedic - AmmarMK Portfolio</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assests/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assests/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assests/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../assests/favicon_io/site.webmanifest" />
+
+    <style>
+      .work-page {
+        min-height: 100vh;
+        padding: 5rem 5% 2rem;
+        background: linear-gradient(to bottom, var(--bg-gradient-from), var(--bg-gradient-to));
+      }
+
+      .work-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .back-link:hover {
+        transform: translateX(-5px);
+      }
+
+      .work-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .work-hero h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .work-hero .project-name {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .work-hero .project-name .motor {
+        color: #757575;
+      }
+
+      .work-hero .project-name .medic {
+        color: #1565c0;
+      }
+
+      .work-hero .tagline {
+        font-size: 1.3rem;
+        color: #757575;
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+      .work-hero p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .work-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        margin-bottom: 2rem;
+      }
+
+      .work-section h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .work-section h3 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .work-section p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .work-section ul {
+        list-style-position: inside;
+        color: var(--text-light);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .gallery-placeholder {
+        background: var(--secondary-color);
+        padding: 3rem;
+        border-radius: 10px;
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .work-hero h1,
+        .work-hero .project-name {
+          font-size: 2rem;
+        }
+
+        .work-hero .tagline {
+          font-size: 1.1rem;
+        }
+
+        .work-hero p {
+          font-size: 1rem;
+        }
+
+        .work-section {
+          padding: 1.5rem;
+        }
+
+        .work-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle">
+      <iconify-icon icon="line-md:sunny-filled-loop"></iconify-icon>
+    </button>
+
+    <div class="work-page">
+      <div class="work-container">
+        <a href="../index.html#services" class="back-link">
+          <iconify-icon icon="mdi:arrow-left"></iconify-icon>
+          Back to Portfolio
+        </a>
+
+        <div class="work-hero">
+          <div class="project-name">
+            <span class="motor">Motor</span><span class="medic">Medic</span>
+          </div>
+          <div class="tagline">"A Doctor For Your Ride"</div>
+          <p>
+            A comprehensive Flutter mobile app designed to educate and empower users
+            in motorcycle maintenance
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Overview</h2>
+          <p>
+            MotorMedic was developed as a comprehensive tool designed to educate and
+            empower users in motorcycle maintenance. This mobile application provides
+            motorcycle owners with the knowledge and tools they need to properly
+            maintain their vehicles, diagnose common issues, and understand their
+            bike better.
+          </p>
+          <p>
+            This was a group project for our Software Engineering subject, where we
+            applied software engineering principles and methodologies to create a
+            practical, user-friendly mobile application.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Technologies Used</h2>
+          <div class="tech-list">
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Dart</span>
+            <span class="tech-tag">Mobile Development</span>
+            <span class="tech-tag">Cross-platform</span>
+          </div>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Context</h2>
+          <p>
+            <strong>Course:</strong> Software Engineering
+          </p>
+          <p>
+            <strong>Type:</strong> Group Project
+          </p>
+          <p>
+            This project allowed us to apply theoretical knowledge from our
+            Software Engineering course into practical application. We followed
+            proper software development lifecycle, from requirements gathering
+            to design, implementation, testing, and deployment.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Key Features</h2>
+          <ul>
+            <li>Comprehensive motorcycle maintenance guides and tutorials</li>
+            <li>Educational content for different types of motorcycles</li>
+            <li>User-friendly interface designed for motorcycle enthusiasts</li>
+            <li>Cross-platform mobile application (Android & iOS)</li>
+            <li>Practical maintenance tips and best practices</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>What I Learned</h2>
+          <ul>
+            <li>Mobile application development using Flutter framework</li>
+            <li>Dart programming language fundamentals and best practices</li>
+            <li>Cross-platform mobile development techniques</li>
+            <li>Team collaboration and version control in group projects</li>
+            <li>Software engineering principles and methodologies</li>
+            <li>UI/UX design for mobile applications</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>Gallery</h2>
+          <div class="gallery-placeholder">
+            <iconify-icon icon="mdi:image-multiple" width="48"></iconify-icon>
+            <p>App screenshots coming soon...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

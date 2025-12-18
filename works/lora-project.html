@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoRa Project - AmmarMK Portfolio</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assests/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assests/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assests/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../assests/favicon_io/site.webmanifest" />
+
+    <style>
+      .work-page {
+        min-height: 100vh;
+        padding: 5rem 5% 2rem;
+        background: linear-gradient(to bottom, var(--bg-gradient-from), var(--bg-gradient-to));
+      }
+
+      .work-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .back-link:hover {
+        transform: translateX(-5px);
+      }
+
+      .work-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .work-hero h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+
+      .work-hero p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .work-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        margin-bottom: 2rem;
+      }
+
+      .work-section h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .work-section h3 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .work-section p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .work-section ul {
+        list-style-position: inside;
+        color: var(--text-light);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .gallery-placeholder {
+        background: var(--secondary-color);
+        padding: 3rem;
+        border-radius: 10px;
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .work-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .work-hero p {
+          font-size: 1rem;
+        }
+
+        .work-section {
+          padding: 1.5rem;
+        }
+
+        .work-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle">
+      <iconify-icon icon="line-md:sunny-filled-loop"></iconify-icon>
+    </button>
+
+    <div class="work-page">
+      <div class="work-container">
+        <a href="../index.html#services" class="back-link">
+          <iconify-icon icon="mdi:arrow-left"></iconify-icon>
+          Back to Portfolio
+        </a>
+
+        <div class="work-hero">
+          <h1>LoRa Enabled Wireless Water Content Irregularity Monitoring System</h1>
+          <p>
+            IoT-based monitoring system using Arduino and LoRa technology
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Overview</h2>
+          <p>
+            This project implements a wireless monitoring system for detecting water
+            content irregularities using LoRa (Long Range) communication technology
+            and Arduino microcontrollers. The system enables long-distance wireless
+            communication for monitoring water levels and detecting anomalies in
+            real-time.
+          </p>
+          <p>
+            LoRa technology provides excellent range and low power consumption,
+            making it ideal for remote monitoring applications where traditional
+            Wi-Fi or cellular connectivity may not be available or practical.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Technologies Used</h2>
+          <div class="tech-list">
+            <span class="tech-tag">Arduino</span>
+            <span class="tech-tag">LoRa</span>
+            <span class="tech-tag">C/C++</span>
+            <span class="tech-tag">IoT</span>
+            <span class="tech-tag">Wireless Communication</span>
+            <span class="tech-tag">Sensor Integration</span>
+          </div>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Context</h2>
+          <p>
+            <strong>Type:</strong> Grant Project from Lecturer & Final Year Project
+          </p>
+          <p>
+            <strong>Academic Level:</strong> Diploma Final Year Project
+          </p>
+          <p>
+            This project served a dual purpose: it was both a grant-funded research
+            project supervised by my lecturer and my final year capstone project
+            for my Diploma. This unique opportunity allowed me to work on
+            cutting-edge IoT technology while fulfilling my academic requirements.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Key Features</h2>
+          <ul>
+            <li>Long-range wireless communication using LoRa technology</li>
+            <li>Real-time water content monitoring and irregularity detection</li>
+            <li>Low power consumption for extended battery operation</li>
+            <li>Arduino-based microcontroller implementation</li>
+            <li>Sensor data collection and transmission</li>
+            <li>Wireless network topology for distributed monitoring</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>Technical Details</h2>
+          <p>
+            The system utilizes Arduino microcontrollers integrated with LoRa
+            communication modules to create a wireless sensor network. Water
+            content sensors collect data at remote locations, which is then
+            transmitted over long distances using LoRa's low-power, wide-area
+            network (LPWAN) capabilities.
+          </p>
+          <p>
+            The LoRa protocol allows for communication ranges of several kilometers
+            in open areas, making it suitable for agricultural, environmental, or
+            industrial monitoring applications where traditional wireless
+            technologies would fall short.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>What I Learned</h2>
+          <ul>
+            <li>LoRa communication protocol and implementation</li>
+            <li>Arduino programming for IoT applications</li>
+            <li>Sensor integration and data acquisition</li>
+            <li>Wireless network design and optimization</li>
+            <li>Low-power embedded systems design</li>
+            <li>Research methodology and academic project management</li>
+            <li>Real-world problem-solving in environmental monitoring</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>Gallery</h2>
+          <div class="gallery-placeholder">
+            <iconify-icon icon="mdi:image-multiple" width="48"></iconify-icon>
+            <p>Project photos and diagrams coming soon...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
