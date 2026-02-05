@@ -35,13 +35,16 @@ function initThemeToggle() {
     
     if (!themeToggle) return;
     
-    // Load saved theme preference on page load
+    // Load saved theme preference on page load (default to dark)
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'dark' || !savedTheme) {
         body.classList.add('dark-mode');
         const icon = themeToggle.querySelector('iconify-icon');
         if (icon) {
             icon.setAttribute('icon', 'line-md:sunny-filled-loop-to-moon-filled-loop-transition');
+        }
+        if (!savedTheme) {
+            localStorage.setItem('theme', 'dark');
         }
     }
     
@@ -595,4 +598,5 @@ function initWorksSection() {
         }
     }
 }
+
 
