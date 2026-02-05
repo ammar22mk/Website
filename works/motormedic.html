@@ -281,15 +281,40 @@
         </div>
 
         <div class="work-section">
-          <h2>Gallery</h2>
-          <div class="gallery-placeholder">
-            <iconify-icon icon="mdi:image-multiple" width="48"></iconify-icon>
-            <p>App screenshots coming soon...</p>
+          <h2>System Diagram</h2>
+          <div style="text-align: center; padding: 1rem;">
+            <img 
+              id="system-diagram"
+              src="../assests/works/Motomedic black diagram.svg" 
+              alt="MotorMedic System Diagram" 
+              style="max-width: 100%; height: auto; border-radius: 8px;"
+            />
           </div>
         </div>
-      </div>
-    </div>
 
     <script src="../script.js"></script>
+    <script>
+      // Handle diagram theme switching
+      function updateDiagram() {
+        const diagram = document.getElementById('system-diagram');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        if (diagram) {
+          diagram.src = isDarkMode 
+            ? '../assests/works/Motomedic white diagram.svg'
+            : '../assests/works/Motomedic black diagram.svg';
+        }
+      }
+
+      // Update diagram on page load
+      updateDiagram();
+
+      // Watch for theme changes
+      const observer = new MutationObserver(updateDiagram);
+      observer.observe(document.body, { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+      });
+    </script>
   </body>
 </html>
