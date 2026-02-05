@@ -341,11 +341,11 @@ function initSkillsSection() {
 
         // Dragging functionality
         scroller.addEventListener('mousedown', startDragging);
-        scroller.addEventListener('touchstart', startDragging);
+        scroller.addEventListener('touchstart', startDragging, { passive: false });
         document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchmove', drag, { passive: true });
         document.addEventListener('mouseup', stopDragging);
-        document.addEventListener('touchend', stopDragging);
+        document.addEventListener('touchend', stopDragging, { passive: true });
         
         function startDragging(e) {
             e.preventDefault();
@@ -432,14 +432,12 @@ function initTooltips() {
 
         // Touch events for mobile
         element.addEventListener("touchstart", (e) => {
-            e.preventDefault(); // Prevent default touch behavior
             showTooltip.call(element, e);
-        });
+        }, { passive: true });
 
-        element.addEventListener("touchend", (e) => {
-            e.preventDefault();
+        element.addEventListener("touchend", () => {
             setTimeout(hideTooltip, 1500); // Hide after delay to allow reading
-        });
+        }, { passive: true });
     });
 
     // Show tooltip function
@@ -527,9 +525,9 @@ function initWorksSection() {
     
     // Add event listeners
     // Touch events
-    sliderHolder.addEventListener('touchstart', dragStart);
-    sliderHolder.addEventListener('touchmove', dragMove);
-    sliderHolder.addEventListener('touchend', dragEnd);
+    sliderHolder.addEventListener('touchstart', dragStart, { passive: false });
+    sliderHolder.addEventListener('touchmove', dragMove, { passive: true });
+    sliderHolder.addEventListener('touchend', dragEnd, { passive: true });
     
     // Mouse events
     sliderHolder.addEventListener('mousedown', dragStart);
@@ -584,5 +582,4 @@ function initWorksSection() {
             }
         }
     }
-
 }
