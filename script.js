@@ -35,6 +35,16 @@ function initThemeToggle() {
     
     if (!themeToggle) return;
     
+    // Load saved theme preference on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        const icon = themeToggle.querySelector('iconify-icon');
+        if (icon) {
+            icon.setAttribute('icon', 'line-md:sunny-filled-loop-to-moon-filled-loop-transition');
+        }
+    }
+    
     themeToggle.addEventListener('click', () => {
         // Disable button to prevent multiple clicks
         themeToggle.disabled = true;
@@ -53,10 +63,16 @@ function initThemeToggle() {
         setTimeout(() => {
             body.classList.toggle('dark-mode');
             const icon = themeToggle.querySelector('iconify-icon');
-            if (icon) {
-                if (body.classList.contains('dark-mode')) {
+            
+            // Save theme preference to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                if (icon) {
                     icon.setAttribute('icon', 'line-md:sunny-filled-loop-to-moon-filled-loop-transition');
-                } else {
+                }
+            } else {
+                localStorage.setItem('theme', 'light');
+                if (icon) {
                     icon.setAttribute('icon', 'line-md:sunny-filled-loop');
                 }
             }
@@ -568,4 +584,5 @@ function initWorksSection() {
             }
         }
     }
+
 }
