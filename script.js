@@ -523,6 +523,17 @@ function initWorksSection() {
     const radioButtons = document.querySelectorAll('input[name="slider"]');
     if (radioButtons.length === 0) return;
     
+    // Allow read-more links to be clickable on mobile
+    const readMoreLinks = sliderHolder.querySelectorAll('.read-more');
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        link.addEventListener('touchstart', (e) => {
+            e.stopPropagation();
+        }, { passive: true });
+    });
+
     // Add event listeners
     // Touch events
     sliderHolder.addEventListener('touchstart', dragStart, { passive: false });
@@ -537,6 +548,7 @@ function initWorksSection() {
     
     // Drag start handler
     function dragStart(e) {
+        if (e.target.closest('.read-more')) return;
         e.preventDefault();
         isDragging = true;
         startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
@@ -583,3 +595,4 @@ function initWorksSection() {
         }
     }
 }
+
