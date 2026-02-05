@@ -47,7 +47,7 @@
       }
 
       .work-container {
-        max-width: 1000px;
+        max-width: 1500px;
         margin: 0 auto;
       }
 
@@ -90,6 +90,29 @@
         border-radius: 10px;
         box-shadow: 0 4px 6px var(--shadow-color);
         margin-bottom: 2rem;
+      }
+
+      .work-layout {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, calc((100% - 2rem) * 0.6)) minmax(0, calc((100% - 2rem) * 0.4));
+        align-items: start;
+      }
+
+      .work-sidebar {
+        position: sticky;
+        top: 6rem;
+        align-self: start;
+      }
+
+      @media (max-width: 1024px) {
+        .work-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .work-sidebar {
+          position: static;
+        }
       }
 
       .work-section h2 {
@@ -146,6 +169,199 @@
         font-style: italic;
       }
 
+      #image-container {
+        position: relative;
+        display: inline-block;
+        margin-top: 0.5rem;
+        width: min(100%, 720px);
+        aspect-ratio: 4 / 3;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      #image-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 4;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+
+      .loading-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: rgba(0, 0, 0, 0.45);
+        color: #ffffff;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 5;
+      }
+
+      #image-container.is-loading .loading-overlay {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .spinner {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #ffffff;
+        animation: spin 0.9s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .detection-results {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+
+      .detection-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.85rem;
+        border-radius: 20px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid currentColor;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .detection-badge:hover {
+        transform: scale(1.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .detection-badge.red { color: #e53935; }
+      .detection-badge.green { color: #43a047; }
+      .detection-badge.yellow { color: #fdd835; }
+      .detection-badge.orange { color: #ff9800; }
+
+      .detection-badge .badge-count {
+        color: currentColor;
+        font-weight: 700;
+      }
+
+      .toggle-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .controls-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      .output-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .output-row.is-hidden {
+        display: none;
+      }
+
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        color: var(--text-light);
+        font-weight: 600;
+        transition: transform 0.2s ease;
+      }
+
+      .toggle:hover {
+        transform: translateY(-1px);
+      }
+
+      .toggle input {
+        display: none;
+      }
+
+      .switch {
+        width: 42px;
+        height: 22px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.35);
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        transition: background 0.2s ease;
+      }
+
+      .switch::after {
+        content: "";
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--bg-color);
+        position: absolute;
+        top: 50%;
+        left: 2px;
+        transform: translateY(-50%);
+        transition: transform 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+      }
+
+      .toggle input:checked + .switch {
+        background: var(--primary-color);
+      }
+
+      .toggle input:checked + .switch::after {
+        transform: translateX(20px) translateY(-50%);
+      }
+
+      .no-detections {
+        color: var(--text-light);
+        font-style: italic;
+      }
+
       @media (max-width: 768px) {
         .work-hero h1 {
           font-size: 2rem;
@@ -187,98 +403,356 @@
           </p>
         </div>
 
-        <div class="work-section">
-          <h2>Project Overview</h2>
-          <p>
-            This Computer Vision project utilizes machine learning to detect and
-            classify different types of bell peppers. Using the YOLOv8 (You Only
-            Look Once version 8) object detection algorithm, the system can
-            accurately identify and distinguish between various bell pepper
-            varieties in real-time.
-          </p>
-          <p>
-            The project demonstrates the practical application of deep learning
-            in agricultural technology, where automated detection and
-            classification can improve efficiency in farming, quality control,
-            and food processing operations.
-          </p>
-        </div>
+        <div class="work-layout">
+          <div class="work-content">
+            <div class="work-section">
+              <h2>Project Overview</h2>
+              <p>
+                This Computer Vision project utilizes machine learning to detect and
+                classify different types of bell peppers. Using the YOLOv8 (You Only
+                Look Once version 8) object detection algorithm, the system can
+                accurately identify and distinguish between various bell pepper
+                varieties in real-time.
+              </p>
+              <p>
+                The project demonstrates the practical application of deep learning
+                in agricultural technology, where automated detection and
+                classification can improve efficiency in farming, quality control,
+                and food processing operations.
+              </p>
+            </div>
 
-        <div class="work-section">
-          <h2>Technologies Used</h2>
-          <div class="tech-list">
-            <span class="tech-tag">YOLOv8</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Google Colab</span>
-            <span class="tech-tag">Machine Learning</span>
-            <span class="tech-tag">Computer Vision</span>
-            <span class="tech-tag">Deep Learning</span>
+            <div class="work-section">
+              <h2>Technologies Used</h2>
+              <div class="tech-list">
+                <span class="tech-tag">YOLOv8</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Google Colab</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">Deep Learning</span>
+              </div>
+            </div>
+
+            <div class="work-section">
+              <h2>Technical Implementation</h2>
+              <p>
+                The project leverages YOLOv8, one of the most advanced real-time object
+                detection systems available. YOLOv8 provides excellent accuracy and
+                speed, making it ideal for real-time detection applications.
+              </p>
+              <p>
+                Google Colab was used as the development and training environment,
+                providing access to powerful GPU resources necessary for training
+                deep learning models. This cloud-based approach allowed for efficient
+                model training without requiring expensive local hardware.
+              </p>
+            </div>
+
+            <div class="work-section">
+              <h2>Key Features</h2>
+              <ul>
+                <li>Real-time detection and classification of bell pepper types</li>
+                <li>High accuracy using state-of-the-art YOLOv8 architecture</li>
+                <li>Trained using custom dataset of bell pepper images</li>
+                <li>Fast inference suitable for real-world applications</li>
+                <li>Cloud-based training using Google Colab's GPU resources</li>
+              </ul>
+            </div>
+
+            <div class="work-section">
+              <h2>Use Cases</h2>
+              <p>
+                This technology has several potential applications:
+              </p>
+              <ul>
+                <li>Automated quality control in food processing facilities</li>
+                <li>Agricultural sorting and grading systems</li>
+                <li>Inventory management in grocery stores</li>
+                <li>Research in agricultural technology and crop monitoring</li>
+                <li>Educational tool for learning about computer vision</li>
+              </ul>
+            </div>
+
+            <div class="work-section">
+              <h2>What I Learned</h2>
+              <ul>
+                <li>YOLOv8 architecture and implementation</li>
+                <li>Computer Vision fundamentals and techniques</li>
+                <li>Machine learning model training and optimization</li>
+                <li>Using Google Colab for deep learning projects</li>
+                <li>Dataset preparation and annotation for object detection</li>
+                <li>Model evaluation and performance metrics</li>
+                <li>Practical applications of AI in agriculture</li>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div class="work-section">
-          <h2>Technical Implementation</h2>
-          <p>
-            The project leverages YOLOv8, one of the most advanced real-time object
-            detection systems available. YOLOv8 provides excellent accuracy and
-            speed, making it ideal for real-time detection applications.
-          </p>
-          <p>
-            Google Colab was used as the development and training environment,
-            providing access to powerful GPU resources necessary for training
-            deep learning models. This cloud-based approach allowed for efficient
-            model training without requiring expensive local hardware.
-          </p>
-        </div>
+          <div class="work-sidebar">
+            <div class="work-section">
+              <h2>Live Demo</h2>
+              <p>Upload an image to detect bell peppers:</p>
 
-        <div class="work-section">
-          <h2>Key Features</h2>
-          <ul>
-            <li>Real-time detection and classification of bell pepper types</li>
-            <li>High accuracy using state-of-the-art YOLOv8 architecture</li>
-            <li>Trained using custom dataset of bell pepper images</li>
-            <li>Fast inference suitable for real-world applications</li>
-            <li>Cloud-based training using Google Colab's GPU resources</li>
-          </ul>
-        </div>
+              <div class="controls-row">
+                <div>
+                  <input type="file" id="uploadInput" accept="image/*" style="display: none;" />
+                  <label
+                    for="uploadInput"
+                    class="contact-btn"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem;"
+                  >
+                    <iconify-icon icon="mdi:upload" style="font-size: 1.2rem;"></iconify-icon>
+                    Choose Image
+                  </label>
+                </div>
+              </div>
 
-        <div class="work-section">
-          <h2>Use Cases</h2>
-          <p>
-            This technology has several potential applications:
-          </p>
-          <ul>
-            <li>Automated quality control in food processing facilities</li>
-            <li>Agricultural sorting and grading systems</li>
-            <li>Inventory management in grocery stores</li>
-            <li>Research in agricultural technology and crop monitoring</li>
-            <li>Educational tool for learning about computer vision</li>
-          </ul>
-        </div>
-
-        <div class="work-section">
-          <h2>What I Learned</h2>
-          <ul>
-            <li>YOLOv8 architecture and implementation</li>
-            <li>Computer Vision fundamentals and techniques</li>
-            <li>Machine learning model training and optimization</li>
-            <li>Using Google Colab for deep learning projects</li>
-            <li>Dataset preparation and annotation for object detection</li>
-            <li>Model evaluation and performance metrics</li>
-            <li>Practical applications of AI in agriculture</li>
-          </ul>
-        </div>
-
-        <div class="work-section">
-          <h2>Gallery</h2>
-          <div class="gallery-placeholder">
-            <iconify-icon icon="mdi:image-multiple" width="48"></iconify-icon>
-            <p>Detection examples and results coming soon...</p>
+              <div id="outputRow" class="output-row is-hidden">
+                <div id="image-container">
+                  <div class="loading-overlay" aria-hidden="true">
+                    <span class="spinner"></span>
+                    <span class="loading-text">Processing...</span>
+                  </div>
+                  <canvas id="overlayCanvas"></canvas>
+                  <img id="uploadedImage" src="#" alt="Upload an image to see results" style="display: none;" />
+                </div>
+                <div id="image-controls" class="toggle-row">
+                  <label class="toggle">
+                    <input type="checkbox" id="toggleLabels" checked />
+                    <span class="switch" aria-hidden="true"></span>
+                    Show labels
+                  </label>
+                  <label class="toggle">
+                    <input type="checkbox" id="toggleBoxes" checked />
+                    <span class="switch" aria-hidden="true"></span>
+                    Show boxes
+                  </label>
+                </div>
+              </div>
+              <div id="detectionByClass" class="detection-results"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <script src="../script.js"></script>
+    <script type="module">
+      const ui = {
+        uploadInput: document.getElementById("uploadInput"),
+        image: document.getElementById("uploadedImage"),
+        container: document.getElementById("image-container"),
+        canvas: document.getElementById("overlayCanvas"),
+        counts: document.getElementById("detectionByClass"),
+        outputRow: document.getElementById("outputRow"),
+      };
+
+      const ctx = ui.canvas.getContext("2d");
+      let lastPredictions = [];
+      let lastSourceSize = null;
+
+      const CONFIG = {
+        api: {
+          url: "https://serverless.roboflow.com/newbellpepper/workflows/amkbellpepper",
+          key: "mr5ruNOQpVBfh7UXuRNy",
+        },
+        classes: ["RED", "Green", "Yellow", "Orange"],
+        showLabels: true,
+        showBoxes: true,
+        colors: {
+          Yellow: "#fdd835",
+          Green: "#43a047",
+          RED: "#e53935",
+          Orange: "#ff9800",
+        },
+        box: {
+          colorFallback: "#00c2ff",
+          labelFont: "16px Arial",
+          labelStroke: "rgba(0, 0, 0, 0.4)",
+          labelText: "#fff",
+          label: {
+            height: 22,
+            paddingX: 5,
+            offsetX: -1.5,
+            offsetY: 0,
+            textOffsetX: 0,
+            textOffsetY: -6,
+          },
+        },
+      };
+
+      const toggleLabels = document.getElementById("toggleLabels");
+      const toggleBoxes = document.getElementById("toggleBoxes");
+
+      ui.uploadInput.addEventListener("change", onFileChange);
+      toggleLabels.addEventListener("change", (event) => {
+        CONFIG.showLabels = event.target.checked;
+        if (lastPredictions.length && lastSourceSize) {
+          drawBoxes(lastPredictions, ui.image, lastSourceSize);
+        }
+      });
+
+      toggleBoxes.addEventListener("change", (event) => {
+        CONFIG.showBoxes = event.target.checked;
+        if (lastPredictions.length && lastSourceSize) {
+          drawBoxes(lastPredictions, ui.image, lastSourceSize);
+        }
+      });
+
+      function onFileChange(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setImage(e.target.result);
+          ui.image.onload = () => runDetection(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function setImage(src) {
+        ui.image.src = src;
+        ui.image.style.display = "block";
+        ui.outputRow.classList.remove("is-hidden");
+      }
+
+      async function runDetection(imageUrl) {
+        setLoading(true);
+        const result = await fetchPredictions(imageUrl);
+        const output =
+          result?.outputs?.[0]?.predictions ||
+          result?.predictions ||
+          result?.outputs?.[0]?.detections ||
+          null;
+        console.log("Workflow predictions:", output);
+
+        const predictions = extractPredictions(output);
+        const sourceSize = {
+          sourceWidth: output?.image?.width || ui.image.naturalWidth || ui.image.width,
+          sourceHeight: output?.image?.height || ui.image.naturalHeight || ui.image.height,
+        };
+
+        lastPredictions = predictions;
+        lastSourceSize = sourceSize;
+        drawBoxes(predictions, ui.image, sourceSize);
+        updateClassCounts(predictions);
+        setLoading(false);
+      }
+
+      async function fetchPredictions(imageUrl) {
+        const response = await fetch(CONFIG.api.url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            api_key: CONFIG.api.key,
+            inputs: { image: { type: "url", value: imageUrl } },
+          }),
+        });
+
+        return response.json();
+      }
+
+      function drawBoxes(predictions, imageElement, sourceSize) {
+        const displayWidth = imageElement.clientWidth || imageElement.width;
+        const displayHeight = imageElement.clientHeight || imageElement.height;
+        const naturalWidth = sourceSize?.sourceWidth || imageElement.naturalWidth || displayWidth;
+        const naturalHeight = sourceSize?.sourceHeight || imageElement.naturalHeight || displayHeight;
+
+        ui.canvas.width = displayWidth;
+        ui.canvas.height = displayHeight;
+        ctx.clearRect(0, 0, ui.canvas.width, ui.canvas.height);
+
+        if (!predictions.length) return;
+
+        const scale = Math.min(displayWidth / naturalWidth, displayHeight / naturalHeight);
+        const renderedWidth = naturalWidth * scale;
+        const renderedHeight = naturalHeight * scale;
+        const offsetX = (displayWidth - renderedWidth) / 2;
+        const offsetY = (displayHeight - renderedHeight) / 2;
+
+        ctx.font = CONFIG.box.labelFont;
+        ctx.textBaseline = "alphabetic";
+        ctx.textAlign = "center";
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = CONFIG.box.labelStroke;
+        ctx.fillStyle = CONFIG.box.labelText;
+
+        predictions.forEach((prediction) => {
+          const { x, y, width, height } = prediction;
+          if ([x, y, width, height].some((v) => typeof v !== "number")) return;
+
+          const x1 = (x - width / 2) * scale + offsetX;
+          const y1 = (y - height / 2) * scale + offsetY;
+          const w = width * scale;
+          const h = height * scale;
+
+          const label = getLabel(prediction);
+          const confidence = prediction.confidence ?? prediction.score ?? 0;
+          const color = CONFIG.colors[label] || CONFIG.box.colorFallback;
+
+          if (CONFIG.showBoxes) {
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 3;
+            ctx.strokeRect(x1, y1, w, h);
+          }
+
+          if (CONFIG.showLabels) {
+            const text = `${label} ${Math.round(confidence * 100)}%`;
+            const textWidth = ctx.measureText(text).width;
+            const { height: boxHeight, paddingX, offsetX: labelOffsetX, offsetY: labelOffsetY } =
+              CONFIG.box.label;
+            const labelX = Math.min(
+              Math.max(x1 + labelOffsetX, 0),
+              ui.canvas.width - textWidth - paddingX * 2,
+            );
+            const labelY = Math.max(y1 - boxHeight - labelOffsetY, 2);
+
+            ctx.fillStyle = color;
+            ctx.fillRect(labelX, labelY, textWidth + paddingX * 2, boxHeight);
+            const textY = labelY + boxHeight + CONFIG.box.label.textOffsetY;
+            const textX = labelX + (textWidth + paddingX * 2) / 2 + CONFIG.box.label.textOffsetX;
+            ctx.strokeStyle = CONFIG.box.labelStroke;
+            ctx.fillStyle = CONFIG.box.labelText;
+            ctx.strokeText(text, textX, textY);
+            ctx.fillText(text, textX, textY);
+          }
+        });
+      }
+
+      function extractPredictions(output) {
+        if (Array.isArray(output?.predictions)) return output.predictions;
+        if (Array.isArray(output)) return output;
+        return [];
+      }
+
+      function updateClassCounts(predictions) {
+        const counts = CONFIG.classes.reduce((acc, key) => ({ ...acc, [key]: 0 }), {});
+
+        predictions.forEach((pred) => {
+          const label = getLabel(pred);
+          if (counts[label] !== undefined) counts[label] += 1;
+        });
+
+        const badges = CONFIG.classes
+          .filter((key) => counts[key])
+          .map((key) => {
+            const className = key.toLowerCase();
+            return `<span class="detection-badge ${className}">${key.charAt(0) + key.slice(1).toLowerCase()} <span class="badge-count">${counts[key]}</span></span>`;
+          });
+
+        ui.counts.innerHTML = badges.length
+          ? badges.join("")
+          : `<span class="no-detections">No bell peppers detected</span>`;
+      }
+
+      function getLabel(prediction) {
+        return prediction.class || prediction.label || "Unknown";
+      }
+
+      function setLoading(isLoading) {
+        ui.container.classList.toggle("is-loading", isLoading);
+      }
+    </script>
   </body>
 </html>
