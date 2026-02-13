@@ -598,5 +598,3 @@ function initWorksSection() {
         }
     }
 }
-
-
