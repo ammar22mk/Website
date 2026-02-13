@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Birthday Card - AmmarMK Portfolio</title>
+
+    <link rel="stylesheet" href="../styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assests/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assests/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assests/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../assests/favicon_io/site.webmanifest" />
+
+    <style>
+      .work-page {
+        min-height: 100vh;
+        padding: 5rem 5% 2rem;
+        background: linear-gradient(to bottom, var(--bg-gradient-from), var(--bg-gradient-to));
+      }
+
+      .work-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .back-link:hover {
+        transform: translateX(-5px);
+      }
+
+      .work-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .work-hero h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .work-hero p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .work-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        margin-bottom: 2rem;
+      }
+
+      .work-section h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .work-section p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .work-section ul {
+        list-style-position: inside;
+        color: var(--text-light);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      @media (max-width: 768px) {
+        .work-hero h1 {
+          font-size: 2rem;
+        }
+
+        .work-hero p {
+          font-size: 1rem;
+        }
+
+        .work-section {
+          padding: 1.5rem;
+        }
+
+        .work-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* ── Reference-style Book Animation ── */
+      .card-section {
+        text-align: center;
+      }
+
+      .card-hint {
+        font-size: 0.95rem;
+        color: var(--text-light);
+        opacity: 0.7;
+        margin-bottom: 1.5rem;
+        transition: opacity 0.4s ease;
+      }
+
+      .birthday-card.is-open ~ .card-hint-below {
+        opacity: 0;
+      }
+
+      .card-scene {
+        perspective: 2000px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .birthday-card {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        /* Center initial state: Shift left because visual bulk is on the right half */
+        transform: translateX(-25%); 
+        transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .birthday-card.is-open {
+        /* Open state: Spread is centered, so no shift needed */
+        transform: translateX(0);
+      }
+
+      /* Common styles for all leaves */
+      .card-page {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform-origin: left center;
+        transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+        transform: rotateY(0deg);
+      }
+
+      /* The Base (Back Cover + Right Inside) - Stays flat */
+      .card-base {
+        z-index: 1;
+        background: url('../assests/works/card.png') no-repeat;
+        background-size: 200% 100%;
+        background-position: 100% 0; /* Right half of image */
+      }
+      
+      /* Optional: Back of the base (if rotated, but it stays flat here) -> We can add a pseudo element for back cover if we wanted full rotation */
+
+      /* Dummy Pages for Fanning Effect */
+      .card-page-1 {
+        z-index: 2;
+        background: #fdfdfd;
+        border-left: 1px solid #eee;
+      }
+
+      .card-page-2 {
+        z-index: 3;
+        background: #fafafa;
+        border-left: 1px solid #e0e0e0;
+      }
+
+      /* The Front Leaf (Cover + Left Inside) */
+      .card-front {
+        z-index: 10;
+        transform-style: preserve-3d;
+      }
+
+      /* Faces for the Front Leaf */
+      .card-face {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
+      /* Front Face: The Cover Design (Visible at 0deg) */
+      .face-cover {
+        background: linear-gradient(145deg, #dde3f5, #c8d3ef);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+
+      /* Back Face: The Inside Left Image (Visible at -180deg) */
+      .face-inside {
+        transform: rotateY(180deg);
+        background: url('../assests/works/card.png') no-repeat;
+        background-size: 200% 100%;
+        background-position: 0 0; /* Left half of image */
+      }
+      
+      /* Fold gradient on the inside hinge */
+      .face-inside::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0;
+        width: 20px;
+        height: 100%;
+        background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
+        pointer-events: none;
+      }
+
+      /* ─── State: Open ─── */
+      
+      /* Base stays at 0 (or slight right tilt?) */
+      .birthday-card.is-open .card-base {
+        transform: rotateY(0deg);
+      }
+
+      /* Fan out dummy pages */
+      .birthday-card.is-open .card-page-1 {
+        transform: rotateY(-3deg);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+      }
+      
+      .birthday-card.is-open .card-page-2 {
+        transform: rotateY(-6deg);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+      }
+
+      /* Front Leaf flips all the way to flat (-180deg) */
+      .birthday-card.is-open .card-front {
+        transform: rotateY(-180deg);
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
+      }
+
+      /* Hover Effects (Closed state) */
+      .birthday-card:not(.is-open):hover .card-front {
+        transform: rotateY(-15deg); /* Slight peek */
+      }
+
+      /* Cover Design Internal Styles */
+      .card-cover-back::before { /* Inherited from old styles, mapped to face-cover */
+        content: '';
+        position: absolute;
+        inset: 12px;
+        border: 2px solid rgba(107, 91, 138, 0.25);
+        pointer-events: none;
+      }
+
+      .cover-design {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .cover-emoji {
+        font-size: 3.5rem;
+        line-height: 1;
+      }
+
+      .cover-text {
+        font-family: 'Gabarito', sans-serif;
+        font-size: 1.6rem;
+        color: #6b5b8a;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .cover-subtext {
+        font-size: 0.85rem;
+        color: #8b7daa;
+        margin-top: 0.3rem;
+      }
+
+      @media (max-width: 768px) {
+        .cover-emoji { font-size: 2.4rem; }
+        .cover-text { font-size: 1.1rem; }
+        .cover-subtext { font-size: 0.75rem; }
+      }
+
+      /* Video Section */
+      .demo-layout {
+        display: grid;
+        grid-template-columns: 2.85fr 1fr; /* Optimized ratio for equal visual height */
+        gap: 2rem;
+        align-items: center; /* Center vertically so height mismatch is evenly distributed */
+      }
+
+      .video-wrapper {
+        text-align: center;
+        width: 100%;
+      }
+
+      .video-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .video-frame {
+        width: 100%;
+        /* removed max-width to let grid control sizing */  
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        background: #000;
+        aspect-ratio: 9 / 16; /* Vertical video placeholder ratio */
+      }
+      
+      .video-frame video {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      @media (max-width: 960px) {
+        .demo-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="theme-toggle">
+      <iconify-icon icon="line-md:sunny-filled-loop"></iconify-icon>
+    </button>
+
+    <div class="work-page">
+      <div class="work-container">
+        <a href="../index.html#services" class="back-link">
+          <iconify-icon icon="mdi:arrow-left"></iconify-icon>
+          Back to Portfolio
+        </a>
+
+        <div class="work-hero">
+          <h1>AR Birthday Card</h1>
+          <p>
+            Developed in Unity + Vuforia as a mobile AR app with image tracking that
+            transforms photos into video playback.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Overview</h2>
+          <p>
+            This project uses Unity and Vuforia image tracking to recognize photo
+            targets and play video directly in AR. The goal was to turn a normal
+            birthday greeting into an interactive mobile experience. I have print 
+            out the card in A5 but i already gave the card to the person so the demo
+            video shows the AR experience using the card picture on my PC.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Features</h2>
+          <ul>
+            <li>Mobile AR app with Vuforia image tracking</li>
+            <li>Transforms tracked photos into video playback in AR</li>
+            <li>3D rotating birthday cake animation</li>
+            <li>Particle system fireworks effects</li>
+            <li>C# scripted typewriter text effects</li>
+          </ul>
+        </div>
+
+        <div class="work-section">
+          <h2>Tech Stack</h2>
+          <div class="tech-list">
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">Vuforia</span>
+            <span class="tech-tag">AR</span>
+            <span class="tech-tag">3D Interaction</span>
+          </div>
+        </div>
+
+        <div class="work-section">
+          <h2>What I Learned</h2>
+          <p>
+            This project gave me hands-on experience with mobile AR development using
+            Unity and Vuforia. I learned how to optimize video playback and particle
+            effects for mobile devices, and how to design intuitive interactions that
+            bridge the physical and digital worlds.
+          </p>
+        </div>
+
+        <div class="work-section card-section">
+          <h2>Demo</h2>
+          
+          <div class="demo-layout">
+            <!-- Left: The Interactive Card -->
+            <div class="card-container">
+              <p class="card-hint">Click the card to open it</p>
+              <div class="card-scene">
+                <div class="birthday-card" id="birthdayCard">
+                  <!-- Right Leaf (Base) -->
+                  <div class="card-page card-base"></div>
+                  
+
+                  <div class="card-page card-front">    
+                    <!-- Front Face: The Cover Design -->
+                    <div class="card-face face-cover">
+                      <div class="cover-design">
+                        <span class="cover-emoji">🎂</span>
+                        <span class="cover-text">Happy Birthday!</span>
+                        <span class="cover-emoji">✨</span>
+                        <span class="cover-subtext">Click to open</span>
+                      </div>
+                    </div>
+                    <!-- Back Face: The Left Inside Image -->
+                    <div class="card-face face-inside"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: The Vertical Video -->
+            <div class="video-wrapper">
+              <span class="video-label">AR View</span>
+              <div class="video-frame">
+                <video loop autoplay muted playsinline>
+                  <!-- Replace with your actual vertical video path -->
+                  <source src="../assests/works/ARDemo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script>
+      document.getElementById('birthdayCard').addEventListener('click', function () {
+        this.classList.toggle('is-open');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronic Tools Collection</title>
+
+    <link rel="stylesheet" href="../../styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../assests/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../assests/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../assests/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../../assests/favicon_io/site.webmanifest" />
+
+    <style>
+      .work-page {
+        min-height: 100vh;
+        padding: 5rem 5% 2rem;
+        background: linear-gradient(to bottom, var(--bg-gradient-from), var(--bg-gradient-to));
+      }
+
+      .work-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .back-link:hover {
+        transform: translateX(-5px);
+      }
+
+      .work-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .work-hero h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .work-hero p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .work-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        margin-bottom: 2rem;
+      }
+
+      .work-section h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .work-section p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .tool-card {
+        background: var(--secondary-color);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: left;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px var(--shadow-color);
+      }
+
+      .tool-card h3 {
+        margin: 0 0 0.5rem;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+      }
+
+      .tool-card p {
+        margin: 0 0 0.75rem;
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+
+      .tool-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .calculator {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        text-align: center;
+      }
+
+      .calculator h1 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+      }
+
+      .band-selector {
+        margin-bottom: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--text-muted);
+      }
+
+      .band-selector label {
+        cursor: pointer;
+        padding: 0.35rem 0.9rem;
+        border: 1px solid var(--border-color);
+        border-radius: 999px;
+        transition: all 0.2s ease;
+        background: var(--card-bg);
+        color: var(--text-color);
+      }
+
+      .band-selector input[type="radio"] {
+        display: none;
+      }
+
+      .band-selector input[type="radio"]:checked + label {
+        background-color: var(--primary-color);
+        color: var(--bg-color);
+        border-color: var(--primary-color);
+      }
+
+      .instructions {
+        color: var(--text-muted);
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+
+      .resistor-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        height: 120px;
+      }
+
+      .resistor-svg {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        overflow: visible;
+      }
+
+      .resistor-svg .wire {
+        fill: #a9a9a9;
+      }
+
+      .resistor-svg .bg-shadow {
+        fill: #bdbdbd;
+      }
+
+      .resistor-svg .bg {
+        fill: #e8cba2;
+      }
+
+      .resistor-svg .svg-band {
+        cursor: pointer;
+        fill: transparent;
+        transition: all 0.2s ease;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+        paint-order: stroke fill;
+      }
+
+      .resistor-svg .svg-band:hover {
+        stroke: var(--primary-color);
+        stroke-width: 5;
+      }
+
+      .result {
+        margin-top: 2rem;
+        padding: 1.25rem;
+        background-color: var(--secondary-color);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+      }
+
+      .result h2 {
+        color: var(--primary-color);
+        margin: 0 0 0.5rem 0;
+      }
+
+      #resistance-value {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin: 0;
+      }
+
+      #tcr-value-container {
+        font-size: 1rem;
+        color: var(--text-light);
+        margin-top: 0.5rem;
+      }
+
+      .color-palette {
+        position: absolute;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        box-shadow: 0 6px 16px var(--shadow-color);
+        padding: 0.6rem;
+        z-index: 100;
+      }
+
+      body.dark-mode .resistor-svg .wire {
+        fill: #8e8e8e;
+      }
+
+      body.dark-mode .resistor-svg .bg {
+        fill: #8f7a63;
+      }
+
+      body.dark-mode .resistor-svg .bg-shadow {
+        fill: #6f6f6f;
+      }
+
+      #color-name-preview {
+        text-align: center;
+        padding: 0.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+        min-height: 1.2em;
+        text-transform: capitalize;
+      }
+
+      #palette-swatches {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+      }
+
+      .color-swatch {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .color-swatch:hover {
+        transform: scale(1.1);
+        border-color: var(--primary-color);
+      }
+
+      .primary-result {
+        text-align: center;
+        background: var(--card-bg);
+        border: 2px solid var(--primary-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .result-label {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .result-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        line-height: 1.1;
+      }
+
+      .result-unit {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        margin-top: 0.2rem;
+      }
+
+      .solver-field.is-hidden {
+        display: none;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .solver-grid[data-target="V"] #field-v,
+      .solver-grid[data-target="I"] #field-i,
+      .solver-grid[data-target="R"] #field-r,
+      .solver-grid[data-target="P"] #field-p {
+        order: -1;
+      }
+
+      .solver-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .solver-input {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .solver-field label {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .solver-field input {
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 0.7rem 0.8rem;
+        font-size: 1rem;
+        background: var(--secondary-color);
+        color: var(--text-color);
+        flex: 1;
+        transition: all 0.2s ease;
+      }
+
+      .solver-field input.is-locked {
+        background: transparent;
+        border-color: transparent;
+        color: var(--text-color);
+        font-weight: 500;
+        cursor: default;
+        user-select: text;
+        padding-left: 0;
+      }
+
+      .solver-field input.is-result {
+        background: rgba(24, 183, 109, 0.1);
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+
+      .solver-field select {
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 0.7rem 0.6rem;
+        font-size: 0.95rem;
+        background: var(--secondary-color);
+        color: var(--text-color);
+      }
+
+      .solver-field input::placeholder {
+        color: var(--text-muted);
+      }
+
+      .solver-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .solver-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 0.7rem 1.4rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .solver-btn.primary {
+        background: var(--primary-color);
+        color: var(--bg-color);
+      }
+
+      .solver-btn.secondary {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+      }
+
+      .solver-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .solver-note {
+        margin-top: 1rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .solver-output {
+        margin-top: 1.25rem;
+        padding: 1rem;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        background: var(--secondary-color);
+        color: var(--text-color);
+        min-height: 48px;
+      }
+
+      .ohm-circle {
+        margin: 2rem auto 0;
+        width: min(480px, 90vw);
+        aspect-ratio: 1;
+        position: relative;
+      }
+
+      .ohm-wheel {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .ohm-segment {
+        cursor: pointer;
+        transition: filter 0.2s ease;
+        outline: none;
+        filter: saturate(0.9) brightness(0.9);
+      }
+
+      .ohm-segment text {
+        font-size: 7px;
+        font-weight: 700;
+        fill: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+        font-family: "Onest", "Gabarito", monospace;
+        text-anchor: middle;
+      }
+
+      .ohm-segment.is-available {
+        filter: brightness(1.3);
+      }
+
+      .ohm-segment:hover use,
+      .ohm-segment.is-active use,
+      .ohm-center-segment:hover use,
+      .ohm-center-segment.is-active use {
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+
+      .ohm-segment:hover,
+      .ohm-segment.is-active,
+      .ohm-center-segment:hover,
+      .ohm-center-segment.is-active {
+        filter: brightness(1.15);
+      }
+
+      .ohm-center-segment {
+        cursor: pointer;
+        outline: none;
+      }
+
+      .ohm-segment.is-dimmed {
+        opacity: 0.2;
+        filter: grayscale(0.5);
+      }
+
+      .ohm-center-segment text {
+        pointer-events: none;
+      }
+
+      .ohm-center-label {
+        font-size: 10px;
+        font-weight: 700;
+        fill: #f7f7f7;
+      }
+
+      .ohm-center-sub {
+        font-size: 5px;
+        font-weight: 500;
+        fill: rgba(255, 255, 255, 0.7);
+      }
+
+      .ohm-mode {
+        margin: 1rem 0 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .work-hero h1 {
+          font-size: 2rem;
+        }
+
+        .work-hero p {
+          font-size: 1rem;
+        }
+
+        .work-section {
+          padding: 1.5rem;
+        }
+
+        .work-section h2 {
+          font-size: 1.5rem;
+        }
+
+        .band-selector {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="theme-toggle">
+      <iconify-icon icon="line-md:sunny-filled-loop"></iconify-icon>
+    </button>
+
+    <div class="work-page">
+      <div class="work-container">
+        <a href="../../index.html#services" class="back-link">
+          <iconify-icon icon="mdi:arrow-left"></iconify-icon>
+          Back to Portfolio
+        </a>
+
+        <div class="work-hero">
+          <h1>Electronic Tools</h1>
+          <p>
+            A growing collection of practical electronics calculators and utilities.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Project Overview</h2>
+          <p>
+            This page is a hub for electronics tools I build to speed up circuit design
+            and troubleshooting. Each tool focuses on a specific task, and new tools
+            will be added over time.
+          </p>
+        </div>
+
+        <div class="work-section">
+          <h2>Tool Library</h2>
+          <p>
+            Use the resistor calculator and Ohm's Law quick solver below,
+            then check back as more tools are added.
+          </p>
+          <div class="tools-grid">
+            <a href="#resistor-tool" class="tool-card" style="text-decoration: none; color: inherit; display: block;">
+              <h3>Resistor Color Code Calculator</h3>
+              <p>Decode 3 to 6 band resistors with tolerance and TCR support.</p>
+              <span class="tool-status" style="color: var(--primary-color)">On this page</span>
+            </a>
+            <a href="#ohms-law-tool" class="tool-card" style="text-decoration: none; color: inherit; display: block;">
+              <h3>Ohm's Law Quick Solver</h3>
+              <p>Calculate V, I, R, and P instantly with an interactive formula wheel.</p>
+              <span class="tool-status" style="color: var(--primary-color)">On this page</span>
+            </a>
+            <div class="tool-card" style="opacity: 0.7;">
+              <h3>Voltage Divider Helper</h3>
+              <p>Quickly find resistor pairs for target output voltages.</p>
+              <span class="tool-status">Status: Coming soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-section" id="resistor-tool">
+          <h2>Resistor Color Code Calculator</h2>
+          <div class="calculator">
+            <h1>Resistor Color Code Calculator</h1>
+
+            <div class="band-selector">
+              <span>Bands:</span>
+              <input type="radio" id="select-3-bands" name="band-selection" value="3" />
+              <label for="select-3-bands">3</label>
+              <input type="radio" id="select-4-bands" name="band-selection" value="4" checked />
+              <label for="select-4-bands">4</label>
+              <input type="radio" id="select-5-bands" name="band-selection" value="5" />
+              <label for="select-5-bands">5</label>
+              <input type="radio" id="select-6-bands" name="band-selection" value="6" />
+              <label for="select-6-bands">6</label>
+            </div>
+
+            <p class="instructions">Click on a band to change its color.</p>
+            <div class="resistor-container">
+              <svg
+                id="resistor-svg"
+                class="resistor-svg"
+                viewBox="0 0 2120.2 561.31"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path id="wire-left" class="wire" d="m0 253.72 332.37-3e-5 1e-5 51.99-332.37 2e-5 -1e-5 -51.99" />
+                <path id="wire-right" class="wire" d="m2120.2 253.72-332.37-2e-5v51.99l332.37 3e-5v-51.99" />
+                <path id="left-cap" class="bg-shadow" d="m227.47 253.72h104.91l2e-5 51.99h-104.91l-1e-5 -51.99" />
+                <path id="right-cap" class="bg-shadow" d="m1892.8 253.72h-104.91l-1e-4 51.99h104.91v-51.99" />
+                <path id="lower-body" class="bg-shadow" d="m329.83 280.65h1468c-.4872 153.47-126.19 280.36-279.76 280.36-80.455-.0007-106.15 6.668-228.36-43.211-50.405-20.574-138.15-30.86-225.89-30.861-87.741.0007-175.48 10.288-225.89 30.86-122.21 49.879-147.9 43.211-228.36 43.211-153.57-.001-279.27-126.89-279.76-280.36v-.003" />
+                <path id="upper-body" class="bg" d="m1797.8 280.65h-1468c0.4872-153.47 126.19-280.36 279.76-280.36 80.455 7.1e-4 106.15-6.668 228.36 43.211 50.405 20.574 138.15 30.86 225.89 30.861 87.741-7.1e-4 175.48-10.288 225.89-30.86 122.21-49.879 147.9-43.211 228.36-43.211 153.57 1e-3 279.27 126.89 279.76 280.36v3e-3" />
+                <path id="svg-band1" class="svg-band" d="m630.77 558.7c-50.677 2.7256-82.168-6.0818-120-18.233v-519.52c40.726-15.03 76.888-19.865 119.9-18.076z" />
+                <path id="svg-band2" class="svg-band" d="m836.24 514.66c-50.824 20.859-73.898 28.465-119.8 39.328l-0.19741-547.19c41.4 10.178 82.573 21.482 119.88 39.169z" />
+                <path id="svg-band3" class="svg-band" d="m1041.1 484.78c-39.23-1.317-77.402 4.3294-119.39 8.6549l0.20203-427.29c39.242 3.4816 78.29 9.0387 119.8 8.3637z" />
+                <path id="svg-band4" class="svg-band" d="m1127.2 73.833c41.917-3.578 84.064-7.0925 119.8-16.083l0.2041 443.94c-38.112-7.6271-73.308-12.975-119.8-15.989z" />
+                <path id="svg-band5" class="svg-band" d="m1367.2 19.053c48.003-16.084 93.446-16.76 149.48-15.176l-0.2543 553.98c-68.741 1.7022-90.386 0.7517-149.75-15.784z" />
+                <path id="svg-band6" class="svg-band" d="m1568.5 7.2581c46.565 5.4942 94.348 35.467 119.59 53.244l-0.2034 439.1c-30.947 25.336-83.104 49.876-119.8 54.704z" />
+              </svg>
+            </div>
+            <div class="result">
+              <h2>Resistance Value:</h2>
+              <p id="resistance-value">-</p>
+              <p id="tcr-value-container" style="display: none;">TCR: <span id="tcr-value">-</span></p>
+            </div>
+          </div>
+
+          <div id="color-palette" class="color-palette" style="display: none;">
+            <div id="color-name-preview">Select a color</div>
+            <div id="palette-swatches"></div>
+          </div>
+        </div>
+
+        <div class="work-section" id="ohms-law-tool">
+          <h2>Ohm's Law Quick Solver</h2>
+          <div class="ohm-circle" aria-label="Ohm's law formulas">
+            <svg class="ohm-wheel" viewBox="-105 -105 210 210" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <path id="segment" d="M 0 -45 L 0 -100 A 100 100 0 0 1 50 -86.6 L 22.5 -38.97 A 45 45 0 0 0 0 -45 Z" />
+                <path id="center-wedge" d="M 0 0 L 0 -45 A 45 45 0 0 1 45 0 Z" />
+              </defs>
+
+              <g stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.3" stroke-linejoin="round">
+                <g class="ohm-segment" data-formula="v_ir" data-target="V" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(0)" fill="#18b76d" />
+                  <g transform="translate(19 -70)">
+                    <text y="4" font-size="13" font-weight="700" text-anchor="middle" fill="#fff">I · R</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="v_pi" data-target="V" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(30)" fill="#18b76d" />
+                  <g transform="translate(51 -51)">
+                    <text x="0" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">P</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="0" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">I</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="v_pr" data-target="V" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(60)" fill="#18b76d" />
+                  <g transform="translate(70 -19)">
+                    <path d="M -18 1 L -12 9 L -8 -7 L 17 -7" fill="none" stroke="white" stroke-width="1.5" />
+                    <text x="3" y="4" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">P · R</text>
+                  </g>
+                </g>
+
+                <g class="ohm-segment" data-formula="r_vi" data-target="R" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(90)" fill="#249dff" />
+                  <g transform="translate(70 19)">
+                    <text x="0" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">V</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="0" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">I</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="r_vp" data-target="R" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(120)" fill="#249dff" />
+                  <g transform="translate(51 51)">
+                    <text x="-2" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">V</text>
+                    <text x="4" y="-8" font-size="7" font-weight="700" text-anchor="middle" fill="#fff">2</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="0" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">P</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="r_pi" data-target="R" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(150)" fill="#249dff" />
+                  <g transform="translate(19 70)">
+                    <text x="0" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">P</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="-1" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">I</text>
+                    <text x="3" y="7" font-size="7" font-weight="700" text-anchor="middle" fill="#fff">2</text>
+                  </g>
+                </g>
+
+                <g class="ohm-segment" data-formula="i_vr" data-target="I" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(180)" fill="#f25545" />
+                  <g transform="translate(-19 70)">
+                    <text x="0" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">V</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="0" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">R</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="i_pv" data-target="I" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(210)" fill="#f25545" />
+                  <g transform="translate(-51 51)">
+                    <text x="0" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">P</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="0" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">V</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="i_pr" data-target="I" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(240)" fill="#f25545" />
+                  <g transform="translate(-70 19)">
+                    <path d="M -16 1 L -12 7 L -8 -10 L 17 -10" fill="none" stroke="white" stroke-width="1.5" />
+                    <text x="3" y="-2" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">P</text>
+                    <line x1="-5" y1="1" x2="11" y2="1" stroke="white" stroke-width="1.2" />
+                    <text x="3" y="10" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">R</text>
+                  </g>
+                </g>
+
+                <g class="ohm-segment" data-formula="p_vi" data-target="P" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(270)" fill="#f4b400" />
+                  <g transform="translate(-70 -19)">
+                    <text y="4" font-size="13" font-weight="700" text-anchor="middle" fill="#fff">V · I</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="p_vr" data-target="P" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(300)" fill="#f4b400" />
+                  <g transform="translate(-51 -51)">
+                    <text x="-2" y="-5" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">V</text>
+                    <text x="4" y="-8" font-size="7" font-weight="700" text-anchor="middle" fill="#fff">2</text>
+                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" />
+                    <text x="0" y="11" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">R</text>
+                  </g>
+                </g>
+                <g class="ohm-segment" data-formula="p_ir" data-target="P" role="button" tabindex="0">
+                  <use href="#segment" transform="rotate(330)" fill="#f4b400" />
+                  <g transform="translate(-19 -70)">
+                    <text y="4" font-size="13" font-weight="700" text-anchor="middle" fill="#fff"><tspan>I</tspan><tspan dy="-5" font-size="9">2</tspan><tspan dy="5"> · R</tspan></text>
+                  </g>
+                </g>
+
+                <path d="M -45 0 L 45 0" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+                <path d="M 0 -45 L 0 45" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+              </g>
+
+              <g stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" stroke-linejoin="round">
+                <g class="ohm-center-segment" data-variable="V" role="button" tabindex="0">
+                  <use href="#center-wedge" transform="rotate(0)" fill="#3b3b3b" />
+                  <text class="ohm-center-label" x="20" y="-18" text-anchor="middle">V</text>
+                  <text class="ohm-center-sub" x="20" y="-10" text-anchor="middle">Volts</text>
+                </g>
+                <g class="ohm-center-segment" data-variable="R" role="button" tabindex="0">
+                  <use href="#center-wedge" transform="rotate(90)" fill="#3b3b3b" />
+                  <text class="ohm-center-label" x="20" y="18" text-anchor="middle">R</text>
+                  <text class="ohm-center-sub" x="20" y="25" text-anchor="middle">Ω</text>
+                </g>
+                <g class="ohm-center-segment" data-variable="I" role="button" tabindex="0">
+                  <use href="#center-wedge" transform="rotate(180)" fill="#3b3b3b" />
+                  <text class="ohm-center-label" x="-18" y="18" text-anchor="middle">I</text>
+                  <text class="ohm-center-sub" x="-19" y="25" text-anchor="middle">Amps</text>
+                </g>
+                <g class="ohm-center-segment" data-variable="P" role="button" tabindex="0">
+                  <use href="#center-wedge" transform="rotate(270)" fill="#3b3b3b" />
+                  <text class="ohm-center-label" x="-18" y="-18" text-anchor="middle">P</text>
+                  <text class="ohm-center-sub" x="-19" y="-10" text-anchor="middle">Watts</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="ohm-mode" id="ohm-mode">Mode: Auto</div>
+
+          <div class="primary-result" id="primary-result" style="display: none;">
+            <div class="result-label">Calculated Result</div>
+            <div class="result-value" id="result-value">---</div>
+            <div class="result-unit" id="result-unit">Unit</div>
+          </div>
+
+          <div class="solver-grid" id="solver-grid">
+            <div class="solver-field" id="field-v">
+              <label for="ohm-voltage">Voltage (V)</label>
+              <div class="solver-input">
+                <input id="ohm-voltage" type="number" step="any" placeholder="e.g. 12" />
+                <select id="ohm-voltage-unit">
+                  <option value="1">V</option>
+                  <option value="0.001">mV</option>
+                </select>
+              </div>
+            </div>
+            <div class="solver-field" id="field-i">
+              <label for="ohm-current">Current (A)</label>
+              <div class="solver-input">
+                <input id="ohm-current" type="number" step="any" placeholder="e.g. 0.5" />
+                <select id="ohm-current-unit">
+                  <option value="1">A</option>
+                  <option value="0.001">mA</option>
+                  <option value="0.000001">uA</option>
+                </select>
+              </div>
+            </div>
+            <div class="solver-field" id="field-r">
+              <label for="ohm-resistance">Resistance (Ω)</label>
+              <div class="solver-input">
+                <input id="ohm-resistance" type="number" step="any" placeholder="e.g. 24" />
+                <select id="ohm-resistance-unit">
+                  <option value="1">Ω</option>
+                  <option value="1000">kΩ</option>
+                  <option value="1000000">MΩ</option>
+                </select>
+              </div>
+            </div>
+            <div class="solver-field" id="field-p">
+              <label for="ohm-power">Power (W)</label>
+              <div class="solver-input">
+                <input id="ohm-power" type="number" step="any" placeholder="e.g. 6" />
+                <select id="ohm-power-unit">
+                  <option value="1">W</option>
+                  <option value="0.001">mW</option>
+                  <option value="0.000001">uW</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="solver-actions">
+            <button class="solver-btn primary" id="ohm-solve" type="button">Solve</button>
+            <button class="solver-btn secondary" id="ohm-clear" type="button">Clear</button>
+          </div>
+
+          <p class="solver-note">Tip: Use decimal values for fractions (0.25). Provide exactly two values for best results.</p>
+          <div class="solver-output" id="ohm-output">Waiting for input...</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../script.js"></script>
+    <script src="./resistor.js"></script>
+    <script src="./ohms-law.js"></script>
+  </body>
+</html>
